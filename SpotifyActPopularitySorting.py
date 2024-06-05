@@ -1,5 +1,6 @@
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
+import json
 
 PRINT_ARR = False
 PRINT_RANKINGs = True
@@ -143,10 +144,20 @@ STAGES = [ "RANCH_ARENA", "SHERWOOD_COURT", "TRIPOLEE", "CAROUSEL_CLUB", "OBSERV
 
 '''
 
+def get_client_credentials(file_path="creds.json"):
+    try:
+        with open(file_path, 'r') as file:
+            data = json.load(file)
+            client_id = data['client_id']
+            client_secret = data['client_secret']
+            return client_id, client_secret
+    except FileNotFoundError:
+        raise FileNotFoundError(f"The file at {file_path} was not found.")
+    except KeyError as e:
+        raise KeyError(f"The key {e} was not found in the JSON file.")
 
 def get_artist(artist_name):
-    client_id = 'REDACTED'
-    client_secret = 'REDACTED'
+    client_id, client_secret = get_client_credentials()
     artist_name = for_spotify.get(artist_name, artist_name)
     first_match = False
     if "'" in artist_name:
