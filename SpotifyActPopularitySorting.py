@@ -2,7 +2,7 @@ import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 import json
 
-PRINT_ARR = True
+PRINT_ARR = False
 PRINT_RANKINGs = True
 USE_TEST_ARR = False
 PRINT_SEARCH_RESULTS = True
@@ -247,10 +247,10 @@ def getFullArray(listActs):
     listActsPop = []
     client_id, client_secret = get_client_credentials()
     for act in listActs:
-        act = for_spotify.get(act, act)
-        if isinstance(act,list):
+        act_spot = for_spotify.get(act, act)
+        if isinstance(act_spot,list):
             continue # We'll get and average the duos later.
-        followers, popularity = get_artist_followers_popularity(act, client_id, client_secret)
+        followers, popularity = get_artist_followers_popularity(act_spot, client_id, client_secret)
         listActsPop.append({'name':act, 'followers' : followers, "popularity" : popularity})
     # This logic is to average duos
     for duo in for_spotify:
@@ -270,19 +270,21 @@ def getFullArray(listActs):
     return listActsPop
 
 def print_md_lst(sorted_listing):
+    longestNum = 5
     longestAct = 25
     longestPop = 15
     longestFol = 10
+    numTitle = "Num"
     actTitle = "Act"
     popTitle = "Popularity"
     folTitle = "Followers"
-    print(f"| {actTitle: ^{longestAct}} | {popTitle : ^{longestPop}} | {folTitle : ^{longestFol}} |")
-    print(f"| {'-' * longestAct} | {'-' * longestPop} | {'-' * longestFol} |")
-    for item in sorted_listing:
+    print(f"| {numTitle: ^{longestNum}} | {actTitle: ^{longestAct}} | {popTitle : ^{longestPop}} | {folTitle : ^{longestFol}} |")
+    print(f"| {'-' * longestNum} | {'-' * longestAct} | {'-' * longestPop} | {'-' * longestFol} |")
+    for num, item in enumerate(sorted_listing):
         act = item['name']
         popularity = item['popularity']
         followers = f"{item['followers']:,}"
-        print(f"| {act : ^{longestAct}} | {popularity : ^{longestPop}} | {followers : ^{longestFol}} |")
+        print(f"| {num + 1 : ^{longestNum}} | {act : ^{longestAct}} | {popularity : ^{longestPop}} | {followers : ^{longestFol}} |")
 
 
 def print_array_for_watch(listActs, sorted_listing):
