@@ -7,10 +7,11 @@ from datetime import datetime
 import urllib.request
 import difflib
 import pytz
+from contextlib import redirect_stdout
 
 TZ = pytz.timezone('US/Eastern')
 
-PRINT_ARR = 0
+PRINT_ARR = 1
 PRINT_RANKINGs = 1
 USE_TEST_ARR = 0
 PRINT_SEARCH_RESULTS = 1
@@ -273,7 +274,7 @@ duoActs = {"Gigantic NGHTMRE" : ["Big Gigantic","NGHTMRE"],
 
 
 STAGES = [ "RANCH_ARENA", "SHERWOOD_COURT", "TRIPOLEE", "CAROUSEL_CLUB", "OBSERVATORY", "HONEYCOMB"]
-
+STAGE_DEFAULT = "NO_STAGE"
 
 def get_client_credentials(file_path="creds.json"):
     try:
@@ -362,7 +363,7 @@ def findGenre(act):
         for i in dicto[key]:
             if i.upper() == act.upper():
                 return key
-    return -1
+    return "GENRE_COUNT"
 
 def get_ranking(artists, name, item):
     for artist in artists:
@@ -413,15 +414,19 @@ def getFullArray(listActs):
     duo_pop_mult = 1.05  # Since duos are more hype, add a multiplier to their popularity and follower averages
     duo_follower_mult = 1.2
     listActsPop = []
+    listActsInListDuos = []
     client_id, client_secret = get_client_credentials()
     for act in listActs:
         act_spot = duoActs.get(act, act)
         if isinstance(act_spot,list):
+            listActsInListDuos.append(act_spot)
             continue # We'll get and average the duos later.
         followers, popularity = get_artist_followers_popularity(act_spot, client_id, client_secret)
         listActsPop.append({'name':act, 'followers' : followers, "popularity" : popularity})
     # This logic is to average duos
     for duo in duoActs:
+        if duo not in listActsInListDuos:
+            continue
         artists = duoActs[duo]
         if not isinstance(artists,list):
             continue
@@ -437,26 +442,43 @@ def getFullArray(listActs):
     listActsPop = set_pop_follow_manually(listActsPop, "Cuco", 32, 1059)  # Wrong Cuco is the first option.
     return listActsPop
 
-def dates_to_act(act, day_info):
+def dates_to_act(act, day_info, genre_list):
     defaultStart = datetime(2024, 6, 20, 15, 0)
     defaultEnd = datetime(2024, 6, 20, 16, 0)
-    for actInDates in day_info:
-        if act.lower() == actInDates.lower():
-            datInfoAct = day_info[actInDates]
-            stageToSearch = datInfoAct["stage"].upper()
-            try:
-                stage = difflib.get_close_matches(stageToSearch, STAGES)[0]
-            except IndexError:
-                stage = f"{{{stageToSearch}}}"  # Returns the stage found, around curly brackets if it couldn't be matched in the list
-            return stage, datInfoAct["start_time"], datInfoAct["end_time"]
-    return "NO_STAGE", defaultStart, defaultEnd
+    if act not in genre_list:
+        return "NO_STAGE", defaultStart, defaultEnd
+    datInfoAct = day_info[act]
+    stageToSearch = datInfoAct["stage"].upper()
+    stage = difflib.get_close_matches(stageToSearch, STAGES, n=1)
+    if not stage:
+        stage = f"[{stageToSearch}]"  # Returns the stage found, around curly brackets if it couldn't be matched in the list
+    stage = stage[0]
+    return stage, datInfoAct["start_time"], datInfoAct["end_time"]
     
+
+def slow_sort(popList):
+#{'name': 'ACRAZE', 'followers': 127443, 'popularity': 63},
+    sortedFully = False
+    while not sortedFully:
+        sortedFully = True
+        for i, _ in enumerate(popList):
+            if i + 1 == len(popList):
+                break
+            if (popList[i]['popularity'] - popList[i+1]['popularity']) <= 5 and (popList[i+1]['followers'] - popList[i]['followers']) >= 10000:
+                sortedFully = False
+                popList[i+1], popList[i] = popList[i], popList[i+1]
+    return popList
+        
 
 def print_md_lst(sorted_listing):
     longestNum = 5
     longestAct = 27
     longestPop = 15
     longestFol = 10
+    for item in sorted_listing:
+        longestAct = max(longestAct, len(str(item['name'])))
+        longestPop = max(longestPop, len(str(item['popularity'])))
+        longestFol = max(longestFol, len(str(item['followers'])))
     numTitle = "Num"
     actTitle = "Act"
     popTitle = "Popularity"
@@ -470,38 +492,40 @@ def print_md_lst(sorted_listing):
         print(f"| {num + 1 : ^{longestNum}} | {act : ^{longestAct}} | {popularity : ^{longestPop}} | {followers : ^{longestFol}} |")
 
 
-def print_array_for_watch(listActs, sorted_listing, day_info):
-    artistDateNotFound = []
-    print('#include "festival_schedule_face.h"')
-    print("")
-    print("const schedule_t festival_acts[NUM_ACTS + 1]=")
-    print("{")
-    for act in listActs:
-        stage, start, end = dates_to_act(act, day_info)
-        if stage == "STAGE_COUNT":
-            artistDateNotFound.append(act)
-        actToDisp = unidecode(act)
-        actToDisp = strip_word(actToDisp,["The"])
-        actToDisp = f"{actToDisp.upper()[:6]: <6}"
-        print("    {")
-        print(f'        .artist = "{actToDisp}",')
-        print(f'        .stage = {stage.upper()},')
-        print(f"        .start_time = {{.unit.year = {start.year - 2020}, .unit.month = {start.month}, .unit.day = {start.day}, .unit.hour = {start.hour}, .unit.minute = {start.minute}}},")
-        print(f"        .end_time = {{.unit.year = {end.year - 2020}, .unit.month = {end.month}, .unit.day = {end.day}, .unit.hour = {end.hour}, .unit.minute = {end.minute}}},")
-        print(f'        .genre = {findGenre(act)},')
-        print(f'        .popularity = {get_ranking(sorted_listing, act, "overall")}')
-        print("    },")
-    print('    [NUM_ACTS]  = { //Fall back')
-    print('        .artist = "No Act",')
-    print('        .stage = STAGE_COUNT,')
-    print('        .start_time = {.unit.year = 0, .unit.month = 0, .unit.day = 0, .unit.hour = 0, .unit.minute = 0},')
-    print('        .end_time = {.unit.year = 63, .unit.month = 15, .unit.day = 31, .unit.hour = 31, .unit.minute = 63},')
-    print('        .genre = GENRE_COUNT,')
-    print('        .popularity = 0')
-    print('    }')
-    print('};')
+def print_array_for_watch(listActs, sorted_listing, day_info, filename, genre_list):
+    with open(f'{filename}.txt', 'w') as f:
+        with redirect_stdout(f):
+            artistDateNotFound = []
+            print('#include "festival_schedule_face.h"')
+            print("")
+            print("const schedule_t festival_acts[NUM_ACTS + 1]=")
+            print("{")
+            for act in listActs:
+                stage, start, end = dates_to_act(act, day_info, genre_list)
+                if stage == STAGE_DEFAULT:
+                    artistDateNotFound.append(act)
+                actToDisp = unidecode(act)
+                actToDisp = strip_word(actToDisp,["The"])
+                actToDisp = f"{actToDisp.upper()[:6]: <6}"
+                print("    {")
+                print(f'        .artist = "{actToDisp}",')
+                print(f'        .stage = {stage.upper()},')
+                print(f"        .start_time = {{.unit.year = {start.year - 2020}, .unit.month = {start.month}, .unit.day = {start.day}, .unit.hour = {start.hour}, .unit.minute = {start.minute}}},")
+                print(f"        .end_time = {{.unit.year = {end.year - 2020}, .unit.month = {end.month}, .unit.day = {end.day}, .unit.hour = {end.hour}, .unit.minute = {end.minute}}},")
+                print(f'        .genre = {findGenre(act)},')
+                print(f'        .popularity = {get_ranking(sorted_listing, act, "overall")}')
+                print("    },")
+            print('    [NUM_ACTS]  = { //Fall back')
+            print('        .artist = "No Act",')
+            print('        .stage = STAGE_COUNT,')
+            print('        .start_time = {.unit.year = 0, .unit.month = 0, .unit.day = 0, .unit.hour = 0, .unit.minute = 0},')
+            print('        .end_time = {.unit.year = 63, .unit.month = 15, .unit.day = 31, .unit.hour = 31, .unit.minute = 63},')
+            print('        .genre = GENRE_COUNT,')
+            print('        .popularity = 0')
+            print('    }')
+            print('};')
     
-    if PRINT_SEARCH_RESULTS:
+    if PRINT_SEARCH_RESULTS and artistDateNotFound:
         print("")
         print(f"FAILED TO FIND DATE INFO FOR {artistDateNotFound}")
     
@@ -509,26 +533,54 @@ def print_array_for_watch(listActs, sorted_listing, day_info):
 
 if __name__ == "__main__":
     url = "https://clashfinder.com/m/electricforest23/?user=152rg1.te"
+    html_str = test_content if USE_TEST_ARR else get_url_content(url)
+    day_info = get_html_data(html_str)
+        
     listActs = []
     for key in dicto:
         for i in dicto[key]:
             listActs.append(i)
     listActs = sorted(listActs, key=lambda x: x.lower().replace("the ",""))
-
+    in_genre_list = []
+    not_in_genre_list = []
+    
+    for actDate in day_info:
+        actInDates = difflib.get_close_matches(actDate.upper(), list(map(lambda x: x.upper(), listActs)), n=1)
+        if actInDates:
+            actInDates = actInDates[0]
+            for key1 in day_info:
+                if key1.upper() == actInDates:
+                    in_genre_list.append(key1)
+        else:
+            not_in_genre_list.append(actDate)
+           
+    not_in_genre_list = sorted(not_in_genre_list, key=lambda x: x.lower().replace("the ",""))
     listActsPop = junNine if USE_TEST_ARR else getFullArray(listActs)
+    listActsPopMissing = [] if USE_TEST_ARR else getFullArray(not_in_genre_list)
 
     if SORT_POP_BY_FOLLOWERS:  
         sortKey = lambda x: (x['followers'])
+        sorted_listing = sorted(listActsPop, key=sortKey, reverse=True)
+        sorted_listing_missing = sorted(listActsPopMissing, key=sortKey, reverse=True)
     else:
         sortKey = lambda x: (x['popularity'], x['followers']) # Sort by Spotify popularity w/ followers being the tie-breaker
-    sorted_listing = sorted(listActsPop, key=sortKey, reverse=True)
+        sorted_listing = sorted(listActsPop, key=sortKey, reverse=True)
+        sorted_listing = slow_sort(sorted_listing)
+        sorted_listing_missing = sorted(listActsPopMissing, key=sortKey, reverse=True)
+        sorted_listing_missing = slow_sort(sorted_listing_missing)
+    
     for i, artist in enumerate(sorted_listing):
         artist['overall'] = i + 1
+
+    
+    for i, artist in enumerate(sorted_listing_missing):
+        artist['overall'] = i + 1 
         
     if PRINT_RANKINGs: 
         print_md_lst(sorted_listing)
+        print("\r\n\r\nAND THESE WERE MISSING")
+        print_md_lst(sorted_listing_missing)
         
     if PRINT_ARR:
-        html_str = test_content if USE_TEST_ARR else get_url_content(url)
-        day_info = get_html_data(html_str)
-        print_array_for_watch(listActs, sorted_listing, day_info)
+        print_array_for_watch(listActs, sorted_listing, day_info ,"in_dict", in_genre_list)
+        print_array_for_watch(not_in_genre_list, sorted_listing_missing, day_info, "missing", not_in_genre_list)
