@@ -1,61 +1,100 @@
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
+from unidecode import unidecode
 import json
 
-PRINT_ARR = False
-PRINT_RANKINGs = True
-USE_TEST_ARR = False
-PRINT_SEARCH_RESULTS = True
+PRINT_ARR = 1
+PRINT_RANKINGs = 0
+USE_TEST_ARR = 0
+PRINT_SEARCH_RESULTS = 1
 
-junfive= [{'name': 'ACRAZE', 'followers': 127080, 'popularity': 63}, {'name': 'ALLEYCVT', 'followers': 36697, 'popularity': 40}, {'name': 'ATLiens', 'followers': 98358, 'popularity': 44}, {'name': 'AYYBO', 'followers': 52417, 'popularity': 56}, {'name': 'Baggi', 'followers': 4164, 'popularity': 19}, {'name': 'Barclay Crenshaw', 'followers': 31293, 'popularity': 35}, {'name': 'Ben Bohmer', 'followers': 495128, 'popularity': 61}, {'name': 'Black Tiger Sex Machine', 'followers': 167136, 'popularity': 46}, {'name': 'Boogie T', 'followers': 90318, 'popularity': 43}, {'name': 'Brandi Cyrus', 'followers': 0, 'popularity': 0}, {'name': 'Calussa', 'followers': 8533, 'popularity': 45}, {'name': 'CannaBliss', 'followers': 32, 'popularity': 0}, {'name': 'Cannons', 'followers': 361315, 'popularity': 59}, {'name': 'Caspa', 'followers': 68236, 'popularity': 31}, {'name': 'Cassian', 'followers': 56577, 'popularity': 53}, {'name': 'Chaos in CBD', 'followers': 101794, 'popularity': 46}, {'name': 'Charlotte De Witte', 'followers': 938946, 'popularity': 58}, {'name': 'Chase & Status', 'followers': 915827, 'popularity': 67}, {'name': 'Coco & Breezy', 'followers': 19994, 'popularity': 44}, {'name': 'Cuco', 'followers': 2824249, 'popularity': 66}, {'name': 'Dimension', 'followers': 126559, 'popularity': 60}, {'name': 'Dirtwire', 'followers': 96676, 'popularity': 42}, {'name': 'Disco Biscuits', 'followers': 86130, 'popularity': 33}, {'name': "Dixon's Violin", 'followers': 4905, 'popularity': 10}, {'name': 'DJ Susan', 'followers': 32145, 'popularity': 31}, {'name': 'DJ Tennis', 'followers': 40928, 'popularity': 42}, {'name': 'DRAMA', 'followers': 143636, 'popularity': 56}, {'name': 'Dumpstaphunk', 'followers': 51904, 'popularity': 30}, {'name': 'Eggy', 'followers': 10497, 'popularity': 27}, {'name': 'Emo Nite', 'followers': 0, 'popularity': 0}, {'name': 'Equanimous', 'followers': 48805, 'popularity': 46}, {'name': 'EVERYTHING ALWAYS', 'followers': 346948, 'popularity': 69}, {'name': 'Excision', 'followers': 726722, 'popularity': 58}, {'name': 'G jones', 'followers': 91064, 'popularity': 36}, {'name': 'Gigantic NGHTMRE', 'followers': 360115, 'popularity': 52}, {'name': 'Green Velvet', 'followers': 230555, 'popularity': 52}, {'name': 'H&RRY', 'followers': 0, 'popularity': 0}, {'name': 'Hamdi', 'followers': 52588, 'popularity': 54}, {'name': 'hiatus kaiyote', 'followers': 626631, 'popularity': 55}, {'name': 'INZO', 'followers': 154187, 'popularity': 50}, {'name': "it's murph", 'followers': 46979, 'popularity': 58}, {'name': 'Ivy Lab', 'followers': 84738, 'popularity': 40}, {'name': 'Jjuujjuu', 'followers': 8996, 'popularity': 21}, {'name': 'John Summit', 'followers': 298695, 'popularity': 70}, {'name': 'Juelz', 'followers': 31106, 'popularity': 43}, {'name': 'Kenny Beats', 'followers': 204072, 'popularity': 60}, {'name': 'Kiltro', 'followers': 33850, 'popularity': 42}, {'name': 'Knock2', 'followers': 93144, 'popularity': 56}, {'name': 'Layton Giordani', 'followers': 75332, 'popularity': 56}, {'name': 'Le Youth', 'followers': 113193, 'popularity': 51}, {'name': 'Lettuce', 'followers': 212381, 'popularity': 41}, {'name': 'LEVEL UP', 'followers': 35951, 'popularity': 44}, {'name': 'levity', 'followers': 34601, 'popularity': 44}, {'name': 'Libianca', 'followers': 465078, 'popularity': 63}, {'name': 'Little stranger', 'followers': 56698, 'popularity': 49}, {'name': 'LP Giobbi', 'followers': 75190, 'popularity': 58}, {'name': 'LSZEE', 'followers': 168010, 'popularity': 49}, {'name': 'Lucii', 'followers': 67290, 'popularity': 42}, {'name': 'Ludacris', 'followers': 2948966, 'popularity': 75}, {'name': 'LYNY', 'followers': 14143, 'popularity': 41}, {'name': "Maddy O'Neal", 'followers': 18312, 'popularity': 34}, {'name': 'Major League Djz', 'followers': 844668, 'popularity': 49}, {'name': 'marsh', 'followers': 70150, 'popularity': 51}, {'name': 'Mascolo', 'followers': 2364, 'popularity': 37}, {'name': 'MASONIC', 'followers': 101, 'popularity': 0}, {'name': 'Matroda', 'followers': 126282, 'popularity': 57}, {'name': 'Mau P', 'followers': 101957, 'popularity': 62}, {'name': 'Michael Brun', 'followers': 49054, 'popularity': 49}, {'name': 'Mojave Grey', 'followers': 3728, 'popularity': 25}, {'name': 'NEIL FRANCES', 'followers': 208828, 'popularity': 64}, {'name': 'Nelly Furtado', 'followers': 3865810, 'popularity': 75}, {'name': 'Neoma', 'followers': 12643, 'popularity': 27}, {'name': 'odd Mob', 'followers': 72900, 'popularity': 57}, {'name': 'ODEN & Fatzo', 'followers': 36418, 'popularity': 55}, {'name': 'Only fire', 'followers': 40983, 'popularity': 38}, {'name': 'PAPERWATER', 'followers': 1435, 'popularity': 19}, {'name': 'Peach Tree Rascals', 'followers': 227953, 'popularity': 54}, {'name': 'Polyrhythmics', 'followers': 28850, 'popularity': 31}, {'name': 'Pretty Lights', 'followers': 558652, 'popularity': 48}, {'name': 'Proxima Parada', 'followers': 66225, 'popularity': 49}, {'name': 'Ranger Trucco', 'followers': 10525, 'popularity': 32}, {'name': 'Rawayana', 'followers': 659315, 'popularity': 64}, {'name': 'Rayben', 'followers': 41967, 'popularity': 40}, {'name': 'Redrum', 'followers': 2577, 'popularity': 11}, {'name': 'Sammy Virji', 'followers': 107275, 'popularity': 60}, {'name': 'Sara Landry', 'followers': 193991, 'popularity': 50}, {'name': 'Seven lions', 'followers': 487226, 'popularity': 57}, {'name': 'Shae District', 'followers': 2665, 'popularity': 15}, {'name': 'Slayyyter', 'followers': 397488, 'popularity': 53}, {'name': 'String Cheese Incident', 'followers': 226452, 'popularity': 41}, {'name': 'Subtronics', 'followers': 306550, 'popularity': 61}, {'name': 'Sultan + Shepard', 'followers': 125734, 'popularity': 55}, {'name': 'Super Future', 'followers': 13350, 'popularity': 28}, {'name': 'Swaylo', 'followers': 44, 'popularity': 0}, {'name': 'Thought process', 'followers': 8305, 'popularity': 28}, {'name': 'Tripp St.', 'followers': 14874, 'popularity': 29}, {'name': 'TSHA', 'followers': 71642, 'popularity': 48}, {'name': "Umphrey's McGee", 'followers': 201459, 'popularity': 40}, {'name': 'Unusual demont', 'followers': 43517, 'popularity': 41}, {'name': 'venbee', 'followers': 79060, 'popularity': 55}, {'name': 'Vini Vici', 'followers': 526759, 'popularity': 62}, {'name': 'VNSSA B2B Nala', 'followers': 0, 'popularity': 0}, {'name': 'Westend', 'followers': 46739, 'popularity': 56}, {'name': 'Whyte Fang', 'followers': 15116, 'popularity': 27}, {'name': 'Will Clarke', 'followers': 50197, 'popularity': 41}, {'name': 'Wooli', 'followers': 112535, 'popularity': 55}, {'name': 'Zen Selekta', 'followers': 3737, 'popularity': 15}]
+junNine = [{'name': 'ACRAZE', 'followers': 127443, 'popularity': 63}, {'name': 'AK Sports', 'followers': 3331, 'popularity': 19}, {'name': 'ALLEYCVT', 'followers': 36877, 'popularity': 41}, 
+           {'name': 'ATLiens', 'followers': 98615, 'popularity': 45}, {'name': 'AYYBO', 'followers': 52905, 'popularity': 56}, {'name': 'Baggi', 'followers': 4166, 'popularity': 19}, 
+           {'name': 'Barclay Crenshaw', 'followers': 31378, 'popularity': 35}, {'name': 'Ben Böhmer', 'followers': 497133, 'popularity': 62}, {'name': 'Black Tiger Sex Machine', 'followers': 167306, 'popularity': 46},
+           {'name': 'Blastoyz', 'followers': 112539, 'popularity': 44}, {'name': 'Boogie T', 'followers': 90501, 'popularity': 43}, {'name': 'Boogie T', 'followers': 90501, 'popularity': 43}, 
+           {'name': 'Boogie T.rio', 'followers': 19338, 'popularity': 28}, {'name': 'Brandi Cyrus', 'followers': 0, 'popularity': 0}, {'name': 'Calussa', 'followers': 8622, 'popularity': 45}, 
+           {'name': 'CanaBliss', 'followers': 13432, 'popularity': 33}, {'name': 'Cannons', 'followers': 362225, 'popularity': 59}, {'name': 'Caspa', 'followers': 68293, 'popularity': 31}, 
+           {'name': 'Cassian', 'followers': 56932, 'popularity': 53}, {'name': 'Chaos in the CBD', 'followers': 101956, 'popularity': 46}, {'name': 'Charlotte De Witte', 'followers': 940142, 'popularity': 59}, 
+           {'name': 'Chase & Status', 'followers': 918048, 'popularity': 68}, {'name': 'Coco & Breezy', 'followers': 20131, 'popularity': 44}, {'name': 'Cuco', 'followers': 1059, 'popularity': 32}, 
+           {'name': 'Dimension', 'followers': 127046, 'popularity': 60}, {'name': 'Dirtwire', 'followers': 96771, 'popularity': 42}, {'name': "Dixon's Violin", 'followers': 4923, 'popularity': 10}, 
+           {'name': 'DJ Brownie', 'followers': 247, 'popularity': 5}, {'name': 'DJ Susan', 'followers': 32209, 'popularity': 31}, {'name': 'DJ Tennis', 'followers': 40984, 'popularity': 42}, 
+           {'name': 'DRAMA', 'followers': 143969, 'popularity': 56}, {'name': 'Dumpstaphunk', 'followers': 51936, 'popularity': 30}, {'name': 'Eggy', 'followers': 10580, 'popularity': 27}, 
+           {'name': 'Emo Nite', 'followers': 0, 'popularity': 0}, {'name': 'Equanimous', 'followers': 48934, 'popularity': 46}, {'name': 'Excision', 'followers': 727394, 'popularity': 59}, 
+           {'name': 'G jones', 'followers': 91165, 'popularity': 36}, {'name': 'Goodboys', 'followers': 66372, 'popularity': 66}, {'name': 'Green Velvet', 'followers': 230796, 'popularity': 52}, 
+           {'name': 'H&RRY', 'followers': 0, 'popularity': 0}, {'name': 'Hamdi', 'followers': 52981, 'popularity': 54}, {'name': 'hiatus kaiyote', 'followers': 627658, 'popularity': 56}, 
+           {'name': 'INZO', 'followers': 154464, 'popularity': 50}, {'name': "it's murph", 'followers': 47270, 'popularity': 58}, {'name': 'Ivy Lab', 'followers': 84934, 'popularity': 40}, 
+           {'name': 'Jason Leech', 'followers': 7195, 'popularity': 25}, {'name': 'Jjuujjuu', 'followers': 9013, 'popularity': 21}, {'name': 'John Summit', 'followers': 301175, 'popularity': 70}, 
+           {'name': 'Juelz', 'followers': 31169, 'popularity': 43}, {'name': 'Kallaghan', 'followers': 477, 'popularity': 15}, {'name': 'Kenny Beats', 'followers': 204250, 'popularity': 60}, 
+           {'name': 'Kiltro', 'followers': 33964, 'popularity': 42}, {'name': 'Knock2', 'followers': 93766, 'popularity': 56}, {'name': 'Layton Giordani', 'followers': 75628, 'popularity': 56}, 
+           {'name': 'Le Youth', 'followers': 113340, 'popularity': 51}, {'name': 'League of Sound Disciples', 'followers': 0, 'popularity': 0}, {'name': 'Lettuce', 'followers': 212505, 'popularity': 41}, 
+           {'name': 'LEVEL UP', 'followers': 36127, 'popularity': 44}, {'name': 'levity', 'followers': 34961, 'popularity': 45}, {'name': 'Libianca', 'followers': 466472, 'popularity': 64}, 
+           {'name': 'Little stranger', 'followers': 56964, 'popularity': 49}, {'name': 'LP Giobbi', 'followers': 75423, 'popularity': 59}, {'name': 'Lucii', 'followers': 67333, 'popularity': 42}, 
+           {'name': 'Ludacris', 'followers': 2956027, 'popularity': 75}, {'name': 'LYNY', 'followers': 14268, 'popularity': 42}, {'name': "Maddy O'Neal", 'followers': 18376, 'popularity': 34}, 
+           {'name': 'Major League Djz', 'followers': 847150, 'popularity': 49}, {'name': 'marsh', 'followers': 70340, 'popularity': 51}, {'name': 'Mascolo', 'followers': 2369, 'popularity': 37}, 
+           {'name': 'MASONIC', 'followers': 101, 'popularity': 0}, {'name': 'Matroda', 'followers': 126533, 'popularity': 57}, {'name': 'Mau P', 'followers': 102798, 'popularity': 62}, 
+           {'name': 'Michaël Brun', 'followers': 49131, 'popularity': 49}, {'name': 'Mojave Grey', 'followers': 3749, 'popularity': 25}, {'name': 'Moontricks', 'followers': 58562, 'popularity': 43},
+           {'name': 'NEIL FRANCES', 'followers': 209504, 'popularity': 64}, {'name': 'Nelly Furtado', 'followers': 3872513, 'popularity': 75}, {'name': 'Neoma', 'followers': 12651, 'popularity': 27},
+           {'name': 'odd Mob', 'followers': 73335, 'popularity': 58}, {'name': 'ODEN & Fatzo', 'followers': 36752, 'popularity': 55}, {'name': 'Only fire', 'followers': 41118, 'popularity': 38},
+           {'name': 'PAPERWATER', 'followers': 1441, 'popularity': 19}, {'name': 'Peach Tree Rascals', 'followers': 228168, 'popularity': 54}, {'name': 'Politik', 'followers': 330, 'popularity': 6},
+           {'name': 'Polyrhythmics', 'followers': 28886, 'popularity': 31}, {'name': 'Pretty Lights', 'followers': 558920, 'popularity': 49}, {'name': 'Pretty Pink', 'followers': 45387, 'popularity': 46},
+           {'name': 'Próxima Parada', 'followers': 66440, 'popularity': 49}, {'name': 'Ranger Trucco', 'followers': 10617, 'popularity': 32}, {'name': 'Rawayana', 'followers': 661921, 'popularity': 64},
+           {'name': 'Rayben', 'followers': 42063, 'popularity': 40}, {'name': 'Redrum', 'followers': 2589, 'popularity': 11}, {'name': 'Sammy Virji', 'followers': 108236, 'popularity': 60},
+           {'name': 'Sara Landry', 'followers': 197232, 'popularity': 51}, {'name': 'Seven lions', 'followers': 487783, 'popularity': 58}, {'name': 'Shae District', 'followers': 2666, 'popularity': 15},
+           {'name': 'Shaun Ross', 'followers': 5623, 'popularity': 41}, {'name': 'Slayyyter', 'followers': 398088, 'popularity': 53}, {'name': 'Subtronics', 'followers': 307465, 'popularity': 61},
+           {'name': 'Subtronics', 'followers': 307465, 'popularity': 61}, {'name': 'Sultan + Shepard', 'followers': 126035, 'popularity': 55}, {'name': 'Super Future', 'followers': 13398, 'popularity': 28},
+           {'name': 'Swaylo', 'followers': 36, 'popularity': 1}, {'name': 'The Disco Biscuits', 'followers': 86190, 'popularity': 33}, {'name': 'The String Cheese Incident', 'followers': 226655, 'popularity': 41},
+           {'name': 'Thought process', 'followers': 8325, 'popularity': 28}, {'name': 'Tripp St.', 'followers': 14917, 'popularity': 29}, {'name': 'TSHA', 'followers': 71776, 'popularity': 48},
+           {'name': "Umphrey's McGee", 'followers': 201581, 'popularity': 40}, {'name': 'Unusual demont', 'followers': 43567, 'popularity': 41}, {'name': 'venbee', 'followers': 79249, 'popularity': 55},
+           {'name': 'Vini Vici', 'followers': 527349, 'popularity': 62}, {'name': 'Westend', 'followers': 47026, 'popularity': 56}, {'name': 'Whyte Fang', 'followers': 15168, 'popularity': 27},
+           {'name': 'Will Clarke', 'followers': 50284, 'popularity': 42}, {'name': 'Wooli', 'followers': 112828, 'popularity': 55}, {'name': 'Zen Selekta', 'followers': 3780, 'popularity': 16},
+           {'name': 'Gigantic NGHTMRE', 'followers': 360263, 'popularity': 52}, {'name': 'EVERYTHING ALWAYS', 'followers': 351772, 'popularity': 68}, {'name': 'LSZEE', 'followers': 168478, 'popularity': 49},
+           {'name': 'VNSSA B2B Nala', 'followers': 13823, 'popularity': 35}, {'name': 'Hyperbeam', 'followers': 46701, 'popularity': 53}]
 
-dicto = {"BASS": ["ALLEYCVT",
-                  "ATLiens",
-                  "Barclay Crenshaw",
-                  "Black Tiger Sex Machine",
-                  "Caspa",
-                  "Chase & Status",
+dicto = {"DUBSTEP": ["ALLEYCVT",
+                    "ATLiens",
+                    "Barclay Crenshaw",
+                    "Black Tiger Sex Machine",
+                    "Caspa",
+                    "Excision",
+                    "Gigantic NGHTMRE",
+                    "Hamdi",
+                    "LEVEL UP",
+                    "Lucii",
+                    "LYNY",
+                    "LSZEE",             
+                    "Subtronics",           
+                    "Whyte Fang",
+                    "Seven lions",
+                    "Boogie T",
+                    "CanaBliss",
+                    "levity",
+                    "Hyperbeam",
+                    ],
+        "DnB":   ["Chase & Status",
                   "Dimension",
-                  "Excision",
-                  "Gigantic NGHTMRE",
-                  "Hamdi",
-                  "LEVEL UP",
-                  "Lucii",
-                  "LYNY",
-                  "LSZEE",
+                  "AK Sports",
                   "Sammy Virji",
                   "Subtronics",
                   "venbee",
-                  "Whyte Fang",
                   "Wooli",
-                  "Seven lions",
                   "G jones",
                   "Boogie T",
-                  "CanaBliss",
                   "Ivy Lab",
-                  "levity",
                   "Super Future",
                   "Zen Selekta",],
          "HOUSE": ["ACRAZE",
                    "AYYBO",
-                   "Ben Bohmer",
+                   "Ben Böhmer",
                    "Calussa",
                    "Cassian",
-                   "Charlotte De Witte",
-                   "Coco & Breezy",
-                   "DJ Tennis",
-                   "DRAMA",
                    "EVERYTHING ALWAYS",
                    "Green Velvet",
-                   "it's murph",
                    "John Summit",
                    "Knock2",
                    "Le Youth",
-                   "LP Giobbi",
                    "Major League Djz",
                    "Matroda",
                    "Mau P",
-                   "Michael Brun",
                    "ODEN & Fatzo",
                    "Ranger Trucco",
                    "Sultan + Shepard",
@@ -64,13 +103,10 @@ dicto = {"BASS": ["ALLEYCVT",
                    "VNSSA B2B Nala",
                    "Westend",
                    "Will Clarke",
-                   "Sara Landry",
                    "Baggi",
                    "Brandi Cyrus",
-                   "Chaos in CBD",
-                   "DJ Susan",
+                   "Chaos in the CBD",
                    "H&RRY",
-                   "Layton Giordani",
                    "marsh",
                    "MASONIC",
                    "Mojave Grey",
@@ -78,13 +114,33 @@ dicto = {"BASS": ["ALLEYCVT",
                    "Only fire",
                    "Rayben",
                    "Shae District",
-                   "Swaylo",],
+                   "Swaylo",
+                   "DJ Brownie",
+                   "Kallaghan",
+                   "Pretty Pink",              
+                   ],
+         "DANCE": ["Coco & Breezy",
+                   "DJ Tennis",
+                   "DRAMA",
+                   "it's murph",
+                   "LP Giobbi",
+                   "Michaël Brun",
+                   "DJ Susan",
+                   "Boogie T.rio",
+                   "Jason Leech",
+                   "Shaun Ross",],
+         "TECHNO" :["Charlotte De Witte",
+                    "Sara Landry",
+                    "Layton Giordani",
+                    "Blastoyz",
+                    ],
          "INDIE": ["Cuco",
                    "NEIL FRANCES",
                    "Peach Tree Rascals",
                    "Emo Nite",
                    "Equanimous",
-                   "Kiltro",],
+                   "Kiltro",
+                   "Goodboys",],
          "POP": ["Cannons",
                  "Mascolo",
                  "Nelly Furtado",
@@ -96,17 +152,21 @@ dicto = {"BASS": ["ALLEYCVT",
                  "Eggy",
                  "Lettuce",
                  "Pretty Lights",
-                 "Disco Biscuits",
-                 "String Cheese Incident",
+                 "The Disco Biscuits",
+                 "The String Cheese Incident",
                  "Umphrey's McGee",
                  "Jjuujjuu",
-                 "Proxima Parada",],
+                 "Próxima Parada",
+                 "League of Sound Disciples",
+                 ],
          "TRAP": ["INZO",
                   "Juelz",
                   "Maddy O'Neal",
                   "Redrum",
                   "Thought process",
-                  "Tripp St.",],
+                  "Tripp St.",
+                  "Politik",
+                  ],
          "RAP": ["Kenny Beats",
                  "Libianca",
                  "Ludacris",
@@ -115,20 +175,16 @@ dicto = {"BASS": ["ALLEYCVT",
                  "Little stranger",],
          "SOUL": ["Dixon's Violin",
                   "Rawayana",
-                  "Polyrhythmics",]
+                  "Polyrhythmics",
+                  "Moontricks"]
          }
 
 
-for_spotify ={ "Chaos in CBD" : "Chaos In The CBD",
-              "Disco Biscuits": "The Disco Biscuits",
-              "Proxima Parada" : "Próxima Parada",
-              "String Cheese Incident" : "The String Cheese Incident",
-              "Gigantic NGHTMRE" : ["Big Gigantic","NGHTMRE"],
+for_spotify ={"Gigantic NGHTMRE" : ["Big Gigantic","NGHTMRE"],
               "EVERYTHING ALWAYS" : ["Dom Dolla","John Summit"],
               "LSZEE": ["CloZee","LSDREAM"],
               "VNSSA B2B Nala" : ["VNSSA","Nala"],
-              "Michael Brun" : "Michaël Brun",
-              "Ben Bohmer" : "Ben Böhmer"}
+              "Hyperbeam" : ["odd Mob", "Omnom"]}
 
 
 STAGES = [ "RANCH_ARENA", "SHERWOOD_COURT", "TRIPOLEE", "CAROUSEL_CLUB", "OBSERVATORY", "HONEYCOMB"]
@@ -181,7 +237,7 @@ def get_artist(artist_name, client_id, client_secret):
         names_in_search.append(option['name'] )
     dupes = names_in_search.count(artist_name)
     if PRINT_SEARCH_RESULTS and dupes > 1:
-        print(f"MULTIPLE FOUND FOR: {artist_name}: {names_in_search}")
+        print(f"{dupes} EXACT MATCHES FOUND FOR: {artist_name}: {names_in_search}")
     for option in artist_results:
         name = option['name'] 
         if first_match:
@@ -208,6 +264,11 @@ def get_artist_followers_popularity(artist_name, client_id, client_secret):
     popularity = artist_info['popularity']
     return followers, popularity
 
+def strip_word(text, words_to_remove):
+    words = text.split()
+    stripped_words = [word for word in words if word.lower() not in map(str.lower, words_to_remove)]
+    stripped_text = ' '.join(stripped_words)
+    return stripped_text
 
 def rank_artists_by_popularity(artists):
     # Sort artists by popularity in descending order
@@ -226,7 +287,7 @@ def findGenre(act):
     for key in dicto:
         for i in dicto[key]:
             if i.upper() == act.upper():
-                return key.upper()
+                return key
     return -1
 
 def get_ranking(artists, name, item):
@@ -289,8 +350,11 @@ def print_md_lst(sorted_listing):
 
 def print_array_for_watch(listActs, sorted_listing):
     for i, act in enumerate(listActs):
+        actToDisp = unidecode(act)
+        actToDisp = strip_word(actToDisp,["The"])
+        actToDisp = f"{actToDisp.upper()[:6]: <6}"
         print("    {")
-        print(f'        .artist = "{act.upper()[:6]: <6}",')
+        print(f'        .artist = "{actToDisp}",')
         print(f'        .stage = {STAGES[i % len(STAGES)]},')
         print("        .start_time = {.unit.year = 4, .unit.month = 6, .unit.day = 20, .unit.hour = 15, .unit.minute = 0},")
         print("        .end_time = {.unit.year = 4, .unit.month = 6, .unit.day = 20, .unit.hour = 16, .unit.minute = 0},")
@@ -306,7 +370,7 @@ if __name__ == "__main__":
             listActs.append(i)
     listActs = sorted(listActs, key=str.casefold)
 
-    listActsPop = junfive if USE_TEST_ARR else getFullArray(listActs)
+    listActsPop = junNine if USE_TEST_ARR else getFullArray(listActs)
 
     # sorted(listActsPop, key=lambda x: (x['popularity'], x['followers']), reverse=True) If you want to first sort by popularity and followers as the tie-breaker
     sorted_listing = sorted(listActsPop, key=lambda x: (x['followers']), reverse=True)
