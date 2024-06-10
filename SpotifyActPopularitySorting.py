@@ -9,7 +9,7 @@ import difflib
 import pytz
 from contextlib import redirect_stdout
 
-TZ = pytz.timezone('US/Eastern')
+TZ = pytz.timezone('US/Central')  # Clashfinder is in Central time
 
 PRINT_ARR = 1
 PRINT_RANKINGs = 1
@@ -419,7 +419,7 @@ def getFullArray(listActs):
     for act in listActs:
         act_spot = duoActs.get(act, act)
         if isinstance(act_spot,list):
-            listActsInListDuos.append(act_spot)
+            listActsInListDuos.append(act)
             continue # We'll get and average the duos later.
         followers, popularity = get_artist_followers_popularity(act_spot, client_id, client_secret)
         listActsPop.append({'name':act, 'followers' : followers, "popularity" : popularity})
@@ -446,18 +446,19 @@ def dates_to_act(act, day_info, genre_list):
     defaultStart = datetime(2024, 6, 20, 15, 0)
     defaultEnd = datetime(2024, 6, 20, 16, 0)
     if act not in genre_list:
-        return "NO_STAGE", defaultStart, defaultEnd
+        return STAGE_DEFAULT, defaultStart, defaultEnd
+    
     datInfoAct = day_info[act]
     stageToSearch = datInfoAct["stage"].upper()
     stage = difflib.get_close_matches(stageToSearch, STAGES, n=1)
     if not stage:
         stage = f"[{stageToSearch}]"  # Returns the stage found, around curly brackets if it couldn't be matched in the list
-    stage = stage[0]
+    else:
+        stage = stage[0]
     return stage, datInfoAct["start_time"], datInfoAct["end_time"]
     
 
 def slow_sort(popList):
-#{'name': 'ACRAZE', 'followers': 127443, 'popularity': 63},
     sortedFully = False
     while not sortedFully:
         sortedFully = True
@@ -470,26 +471,33 @@ def slow_sort(popList):
     return popList
         
 
-def print_md_lst(sorted_listing):
+def print_md_lst(sorted_listing, genre_list):
     longestNum = 5
     longestAct = 27
     longestPop = 15
     longestFol = 10
+    longestStg = 15
+    stageDict = {}
     for item in sorted_listing:
-        longestAct = max(longestAct, len(str(item['name'])))
+        stage, _, _ = dates_to_act(item['name'], day_info, genre_list)
+        stageDict[item['name']] = stage
+        longestAct = max(longestAct, len(item['name']))
         longestPop = max(longestPop, len(str(item['popularity'])))
         longestFol = max(longestFol, len(str(item['followers'])))
+        longestStg = max(longestStg, len(stage))
     numTitle = "Num"
     actTitle = "Act"
     popTitle = "Popularity"
     folTitle = "Followers"
-    print(f"| {numTitle: ^{longestNum}} | {actTitle: ^{longestAct}} | {popTitle : ^{longestPop}} | {folTitle : ^{longestFol}} |")
-    print(f"| {'-' * longestNum} | {'-' * longestAct} | {'-' * longestPop} | {'-' * longestFol} |")
+    stgTitle = "Stage"
+    print(f"| {numTitle: ^{longestNum}} | {actTitle: ^{longestAct}} | {popTitle : ^{longestPop}} | {folTitle : ^{longestFol}} | {stgTitle : ^{longestStg}} |")
+    print(f"| {'-' * longestNum} | {'-' * longestAct} | {'-' * longestPop} | {'-' * longestFol} | {'-' * longestStg} |")
     for num, item in enumerate(sorted_listing):
         act = item['name']
         popularity = item['popularity']
-        followers = f"{item['followers']:,}"
-        print(f"| {num + 1 : ^{longestNum}} | {act : ^{longestAct}} | {popularity : ^{longestPop}} | {followers : ^{longestFol}} |")
+        followers = item['followers']
+        stage = stageDict[act]
+        print(f"| {num + 1 : ^{longestNum}} | {act : ^{longestAct}} | {popularity : ^{longestPop}} | {followers : ^{longestFol}} | {stage : ^{longestStg}} |")
 
 
 def print_array_for_watch(listActs, sorted_listing, day_info, filename, genre_list):
@@ -532,7 +540,7 @@ def print_array_for_watch(listActs, sorted_listing, day_info, filename, genre_li
 
 
 if __name__ == "__main__":
-    url = "https://clashfinder.com/m/electricforest23/?user=152rg1.te"
+    url = "https://clashfinder.com/m/electricforest2024settimepredictions/?user=152rg1.te"
     html_str = test_content if USE_TEST_ARR else get_url_content(url)
     day_info = get_html_data(html_str)
         
@@ -544,16 +552,20 @@ if __name__ == "__main__":
     in_genre_list = []
     not_in_genre_list = []
     
-    for actDate in day_info:
+    day_info_keys = day_info.keys()
+    for actDate in list(day_info_keys):
         actInDates = difflib.get_close_matches(actDate.upper(), list(map(lambda x: x.upper(), listActs)), n=1)
         if actInDates:
             actInDates = actInDates[0]
-            for key1 in day_info:
+            for key1 in listActs:
                 if key1.upper() == actInDates:
+                    day_info[key1] = day_info.pop(actDate)
                     in_genre_list.append(key1)
+                    break
         else:
             not_in_genre_list.append(actDate)
            
+    in_genre_list = sorted(in_genre_list, key=lambda x: x.lower().replace("the ",""))
     not_in_genre_list = sorted(not_in_genre_list, key=lambda x: x.lower().replace("the ",""))
     listActsPop = junNine if USE_TEST_ARR else getFullArray(listActs)
     listActsPopMissing = [] if USE_TEST_ARR else getFullArray(not_in_genre_list)
@@ -577,9 +589,9 @@ if __name__ == "__main__":
         artist['overall'] = i + 1 
         
     if PRINT_RANKINGs: 
-        print_md_lst(sorted_listing)
+        print_md_lst(sorted_listing, in_genre_list)
         print("\r\n\r\nAND THESE WERE MISSING")
-        print_md_lst(sorted_listing_missing)
+        print_md_lst(sorted_listing_missing, not_in_genre_list)
         
     if PRINT_ARR:
         print_array_for_watch(listActs, sorted_listing, day_info ,"in_dict", in_genre_list)
