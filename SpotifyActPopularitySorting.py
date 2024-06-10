@@ -358,10 +358,12 @@ def findGenre(act):
                 return key
     return GENRE_DEFAULT
 
-def get_ranking(artists, name, item):
+def get_ranking(artists, name):
     for artist in artists:
         if artist['name'].lower() == name.lower():
-            return artist[item]
+            if artist['popularity'] == 0:
+                return 0
+            return artist['overall']
     return 0
 
 def set_pop_follow_manually(artists, name, pop, follower):
@@ -462,12 +464,24 @@ def dates_to_act(act, day_info, genre_list, element = 0):
 
 def slow_sort(popList):
     sortedFully = False
+    pop_priority = 0.4  # Sorts the acts combining the followers and popularity and weighting the popularity by this amount.
+    maxPop = 0
+    maxFol = 0
+    for pop in popList:
+        maxPop = max(maxPop, pop['popularity'])
+        maxFol = max(maxFol, pop['followers'])
+    if maxPop == 0:
+        return popList
+    fol_pop_ratio = int((pop_priority / (1 - pop_priority)) * (maxFol / maxPop))
+    print(f"Ratio for prioritizing followers to popularity: {fol_pop_ratio} followers for 1 pop")
     while not sortedFully:
         sortedFully = True
         for i, _ in enumerate(popList):
             if i + 1 == len(popList):
                 break
-            if (popList[i]['popularity'] - popList[i+1]['popularity']) <= 5 and (popList[i+1]['followers'] - popList[i]['followers']) >= 10000:
+            scoreCurr = (pop_priority * (popList[i]['popularity']/maxPop)) + ((1 - pop_priority) * (popList[i]['followers']/maxFol))
+            scoreNext = (pop_priority * (popList[i+1]['popularity']/maxPop)) + ((1 - pop_priority) * (popList[i+1]['followers']/maxFol))
+            if scoreNext > scoreCurr:
                 sortedFully = False
                 popList[i+1], popList[i] = popList[i], popList[i+1]
     return popList
@@ -527,7 +541,7 @@ def print_array_for_watch(listActs, sorted_listing, day_info, filename, genre_li
                     print(f"        .start_time = {{.unit.year = {start.year - 2020}, .unit.month = {start.month}, .unit.day = {start.day}, .unit.hour = {start.hour}, .unit.minute = {start.minute}}},")
                     print(f"        .end_time = {{.unit.year = {end.year - 2020}, .unit.month = {end.month}, .unit.day = {end.day}, .unit.hour = {end.hour}, .unit.minute = {end.minute}}},")
                     print(f'        .genre = {findGenre(act)},')
-                    print(f'        .popularity = {get_ranking(sorted_listing, act, "overall")}')
+                    print(f'        .popularity = {get_ranking(sorted_listing, act)}')
                     print("    },")
             print('    [NUM_ACTS]  = { //Fall back')
             print('        .artist = "No Act",')
