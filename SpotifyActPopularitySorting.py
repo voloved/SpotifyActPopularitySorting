@@ -356,7 +356,7 @@ def findGenre(act):
         for i in dicto[key]:
             if i.upper() == act.upper():
                 return key
-    return GENRE_DEFAULT
+    return "GENRE_COUNT"
 
 def get_ranking(artists, name):
     for artist in artists:
@@ -516,6 +516,22 @@ def print_md_lst(sorted_listing, genre_list):
         print(f"| {num + 1 : ^{longestNum}} | {act : ^{longestAct}} | {popularity : ^{longestPop}} | {followers : ^{longestFol}} | {stage : ^{longestStg}} |")
 
 
+def get_name_to_display(act, i=0):
+    actToDisp = unidecode(act)
+    actToDisp = strip_word(actToDisp,["The"])
+    actToDisp = f"{actToDisp.upper()[:6]: <6}"
+    if actToDisp == "YOGA  ":
+        actToDisp = f" YOGA{i+1}"
+    elif actToDisp == "BEN BO":
+        actToDisp = "BEN B:"  # Sensor code used : as an umlout
+    elif act == "Pretty Lights":
+        actToDisp = "PRETYL"
+    elif act == "Pretty Pink":
+        actToDisp = "PRETYP"
+    elif actToDisp == "EXCLUS":
+        actToDisp = "EX6For"
+    return actToDisp
+
 def print_array_for_watch(listActs, sorted_listing, day_info, filename, genre_list):
     with open(f'{filename}.txt', 'w') as f:
         with redirect_stdout(f):
@@ -530,11 +546,7 @@ def print_array_for_watch(listActs, sorted_listing, day_info, filename, genre_li
                     stage, start, end, timesPerformed = dates_to_act(act, day_info, genre_list, element=i)
                     if stage == STAGE_DEFAULT:
                         artistDateNotFound.append(act)
-                    actToDisp = unidecode(act)
-                    actToDisp = strip_word(actToDisp,["The"])
-                    actToDisp = f"{actToDisp.upper()[:6]: <6}"
-                    if actToDisp == "YOGA  ":
-                        actToDisp = f" YOGA{i+1}"
+                    actToDisp = get_name_to_display(act, i)
                     print("    {")
                     print(f'        .artist = "{actToDisp}",')
                     print(f'        .stage = {stage.upper()},')
@@ -572,6 +584,7 @@ if __name__ == "__main__":
     in_genre_list = []
     not_in_genre_list = []
     
+    day_info["Hyperbeam"] = day_info.pop("Odd Mob & Omnom present Hyperbeam")  # Easier to just hardcode this one...
     day_info_keys = day_info.keys()
     for actDate in list(day_info_keys):
         actInDates = difflib.get_close_matches(actDate.split(" (")[0].upper(), list(map(lambda x: x.upper(), listActs)), n=1)
