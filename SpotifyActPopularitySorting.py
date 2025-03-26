@@ -21,271 +21,177 @@ STAGE_DEFAULT = "NO_STAGE"
 URL = "https://clashfinder.com/m/lolla2025/"
 
 testPop = [
-    {'name': '2Hollis', 'followers': 236642, 'popularity': 65}, {'name': 'A$AP Rocky', 'followers': 16210405, 'popularity': 86},
-    {'name': 'Alemeda', 'followers': 50590, 'popularity': 40}, {'name': 'Alex Warren', 'followers': 995524, 'popularity': 83},
-    {'name': 'ALEXSUCKS', 'followers': 26202, 'popularity': 44}, {'name': "Aliyah's Interlude", 'followers': 288187, 'popularity': 57},
-    {'name': 'ALLEYCVT', 'followers': 61934, 'popularity': 52}, {'name': 'Amaarae', 'followers': 508201, 'popularity': 66},
-    {'name': 'Artemas', 'followers': 1173774, 'popularity': 76}, {'name': 'Azzecca', 'followers': 24656, 'popularity': 43},
-    {'name': "Barry Can't Swim", 'followers': 224248, 'popularity': 64}, {'name': 'benches', 'followers': 48473, 'popularity': 48},
-    {'name': 'Bilmuri', 'followers': 199045, 'popularity': 61}, {'name': 'Black Party', 'followers': 250213, 'popularity': 44},
-    {'name': 'Bladee', 'followers': 571806, 'popularity': 68}, {'name': 'Bleachers', 'followers': 842156, 'popularity': 69},
-    {'name': 'The Blessed Madonna', 'followers': 115076, 'popularity': 66}, {'name': 'BLK Odyssy', 'followers': 106263, 'popularity': 54},
-    {'name': 'Bo Staloch', 'followers': 19093, 'popularity': 48}, {'name': 'Bossman Dlow', 'followers': 625379, 'popularity': 72},
-    {'name': 'Boynextdoor', 'followers': 1316289, 'popularity': 70}, {'name': 'BUNT.', 'followers': 224449, 'popularity': 69},
-    {'name': 'Bôa', 'followers': 1054227, 'popularity': 71}, {'name': 'Ca7riel y Paco Amoroso', 'followers': 0, 'popularity': 0},
-    {'name': 'Cage the Elephant', 'followers': 4080179, 'popularity': 75}, {'name': 'Carole Ades', 'followers': 0, 'popularity': 0},
-    {'name': 'Caroline Kingsbury', 'followers': 20217, 'popularity': 46}, {'name': 'Carter Vail', 'followers': 109493, 'popularity': 48},
-    {'name': 'Cassandra Coleman', 'followers': 0, 'popularity': 0}, {'name': 'Charlotte Lawrence', 'followers': 1180094, 'popularity': 57},
-    {'name': 'Chase & Status', 'followers': 1126432, 'popularity': 71}, {'name': 'Chicago Made', 'followers': 0, 'popularity': 0},
-    {'name': 'Chicago Youth Symphony Orchestra', 'followers': 132, 'popularity': 3}, {'name': 'Clairo', 'followers': 5886511, 'popularity': 81},
-    {'name': 'Cloonee', 'followers': 191526, 'popularity': 63}, {'name': 'Colby Acuff', 'followers': 131456, 'popularity': 55},
-    {'name': 'The Criticals', 'followers': 20252, 'popularity': 35}, {'name': 'Damiano David', 'followers': 421147, 'popularity': 71},
-    {'name': 'Daniel Allan', 'followers': 21076, 'popularity': 49}, {'name': 'The Dare', 'followers': 144408, 'popularity': 56},
-    {'name': 'Del Water Gap', 'followers': 245530, 'popularity': 63}, {'name': 'DJ Heather', 'followers': 1929, 'popularity': 6},
-    {'name': 'DJO', 'followers': 0, 'popularity': 0}, {'name': 'Doechii', 'followers': 2520225, 'popularity': 88},
-    {'name': 'Dogpark', 'followers': 31619, 'popularity': 43}, {'name': 'Dom Dolla', 'followers': 541154, 'popularity': 72},
-    {'name': 'Dominic Fike', 'followers': 2062334, 'popularity': 79}, {'name': 'Dr. Fresch', 'followers': 134848, 'popularity': 52},
-    {'name': 'The Droptines', 'followers': 16473, 'popularity': 49}, {'name': 'Dua Saleh', 'followers': 109124, 'popularity': 46},
-    {'name': 'Durand Bernarr', 'followers': 122109, 'popularity': 54}, {'name': 'Eddie and the Getaway', 'followers': 86838, 'popularity': 54},
-    {'name': 'Fcukers', 'followers': 30607, 'popularity': 47}, {'name': 'Finneas', 'followers': 2203078, 'popularity': 70},
-    {'name': 'Flipturn', 'followers': 223775, 'popularity': 63}, {'name': 'Flowerovlove', 'followers': 108283, 'popularity': 54},
-    {'name': 'Flux Pavilion', 'followers': 717298, 'popularity': 58}, {'name': 'Foster the People', 'followers': 3963438, 'popularity': 73},
-    {'name': 'Fujii Kaze', 'followers': 4017200, 'popularity': 74}, {'name': 'Gigi Perez', 'followers': 1013366, 'popularity': 80},
-    {'name': 'Girl Tones', 'followers': 3976, 'popularity': 28}, {'name': 'Glass Beams', 'followers': 444275, 'popularity': 54},
-    {'name': 'Gracie Abrams', 'followers': 5003797, 'popularity': 89}, {'name': 'Graham Barham', 'followers': 86809, 'popularity': 63},
-    {'name': 'Gryffin', 'followers': 983894, 'popularity': 69}, {'name': 'Half Alive', 'followers': 73, 'popularity': 0},
-    {'name': 'Hex Cougar', 'followers': 33313, 'popularity': 41}, {'name': 'hey, nothing', 'followers': 147397, 'popularity': 54},
-    {'name': 'Ian', 'followers': 0, 'popularity': 0}, {'name': 'Isabel LaRosa', 'followers': 2235427, 'popularity': 74},
-    {'name': 'Isaiah Rashad', 'followers': 1549139, 'popularity': 70}, {'name': 'ISOxo', 'followers': 78305, 'popularity': 55},
-    {'name': 'Jade LeMac', 'followers': 216106, 'popularity': 66}, {'name': 'Jane Remover', 'followers': 89988, 'popularity': 54},
-    {'name': 'Jesse Detor', 'followers': 14512, 'popularity': 35}, {'name': 'Jev', 'followers': 0, 'popularity': 0},
-    {'name': 'Jigitz', 'followers': 22061, 'popularity': 56}, {'name': 'Joe P', 'followers': 138718, 'popularity': 49},
-    {'name': 'Joey Valence & Brae', 'followers': 594240, 'popularity': 65}, {'name': 'JPEGMafia', 'followers': 966369, 'popularity': 69},
-    {'name': 'Julie', 'followers': 346363, 'popularity': 56}, {'name': 'Junior Varsity', 'followers': 36665, 'popularity': 49},
-    {'name': 'Kaicrewsade', 'followers': 4032, 'popularity': 30}, {'name': 'KATSEYE', 'followers': 1280847, 'popularity': 68},
-    {'name': 'Kenny Mason', 'followers': 207819, 'popularity': 59}, {'name': 'Kickflip', 'followers': 180136, 'popularity': 54},
-    {'name': 'KNOCK2', 'followers': 137658, 'popularity': 63}, {'name': 'Korn', 'followers': 8789407, 'popularity': 77},
-    {'name': 'La Femme', 'followers': 568895, 'popularity': 59}, {'name': 'Laila!', 'followers': 218927, 'popularity': 55},
-    {'name': 'Landon Barker', 'followers': 39846, 'popularity': 42}, {'name': 'Landon Conrath', 'followers': 0, 'popularity': 0},
-    {'name': 'Latin Mafia', 'followers': 1418802, 'popularity': 75}, {'name': 'Layz', 'followers': 29928, 'popularity': 41},
-    {'name': 'Lekan', 'followers': 14583, 'popularity': 37}, {'name': 'Levity', 'followers': 90345, 'popularity': 54},
-    {'name': 'Luke Combs', 'followers': 12439664, 'popularity': 86}, {'name': 'Magdalena Bay', 'followers': 410014, 'popularity': 68},
-    {'name': 'Mariah the Scientist', 'followers': 752998, 'popularity': 68}, {'name': 'The Marias', 'followers': 12, 'popularity': 0},
-    {'name': 'Maribou State', 'followers': 443041, 'popularity': 69}, {'name': 'Mark Ambor', 'followers': 602452, 'popularity': 72},
-    {'name': 'Marlon Hoffstadt', 'followers': 144803, 'popularity': 64}, {'name': 'Martin Garrix', 'followers': 15173248, 'popularity': 77},
-    {'name': 'Mary Droppinz', 'followers': 12141, 'popularity': 32}, {'name': 'Matt Champion', 'followers': 174254, 'popularity': 50},
-    {'name': 'Mau P', 'followers': 150564, 'popularity': 65}, {'name': 'Max McNown', 'followers': 443103, 'popularity': 72},
-    {'name': 'Midnight Generation', 'followers': 82113, 'popularity': 52}, {'name': 'Mk.gee', 'followers': 351347, 'popularity': 64},
-    {'name': 'Montell Fish', 'followers': 1924827, 'popularity': 75}, {'name': 'Murda Beatz', 'followers': 167094, 'popularity': 58},
-    {'name': 'Naomi Scott', 'followers': 382345, 'popularity': 62}, {'name': 'New Dad', 'followers': 985, 'popularity': 0},
-    {'name': 'Nimino', 'followers': 113867, 'popularity': 66}, {'name': 'Nourished By Time', 'followers': 29797, 'popularity': 44},
-    {'name': 'Ocean Alley', 'followers': 620717, 'popularity': 64}, {'name': 'Old Mervs', 'followers': 37575, 'popularity': 53},
-    {'name': 'Ole 60', 'followers': 271599, 'popularity': 64}, {'name': 'Olivia Rodrigo', 'followers': 44539271, 'popularity': 87},
-    {'name': 'Orion Sun', 'followers': 393702, 'popularity': 63}, {'name': 'Orla Gartland', 'followers': 273116, 'popularity': 52},
-    {'name': 'Otoboke Beaver', 'followers': 153292, 'popularity': 37}, {'name': 'Overmono', 'followers': 165736, 'popularity': 55},
-    {'name': 'People R Ugly', 'followers': 41053, 'popularity': 45}, {'name': 'Prospa', 'followers': 55864, 'popularity': 53},
-    {'name': 'Rachel Grae', 'followers': 212819, 'popularity': 56}, {'name': 'Raecola', 'followers': 1533, 'popularity': 12},
-    {'name': 'Ratboys', 'followers': 51734, 'popularity': 40}, {'name': 'Ravyn Lenae', 'followers': 531497, 'popularity': 71},
-    {'name': 'Rebecca Black', 'followers': 165702, 'popularity': 58}, {'name': 'Remi Wolf', 'followers': 590733, 'popularity': 66},
-    {'name': 'Role Model', 'followers': 588282, 'popularity': 74}, {'name': 'Royel Otis', 'followers': 422890, 'popularity': 71},
-    {'name': 'RÜFÜS DU SOL', 'followers': 2016509, 'popularity': 75}, {'name': 'Sabrina Carpenter', 'followers': 20591996, 'popularity': 92},
-    {'name': 'Salute', 'followers': 85690, 'popularity': 53}, {'name': 'Sam Austins', 'followers': 44082, 'popularity': 60},
-    {'name': 'Sammy Virji', 'followers': 167412, 'popularity': 65}, {'name': 'Sierra Ferrell', 'followers': 356087, 'popularity': 63},
-    {'name': 'Silly Goose', 'followers': 29215, 'popularity': 33}, {'name': 'Sofia Camara', 'followers': 57467, 'popularity': 57},
-    {'name': 'Star Bandz', 'followers': 119244, 'popularity': 51}, {'name': 'Still Woozy', 'followers': 1069174, 'popularity': 66},
-    {'name': 'Sunami', 'followers': 150013, 'popularity': 50}, {'name': 'The Symposium', 'followers': 95546, 'popularity': 47},
-    {'name': 'T-Pain', 'followers': 5367567, 'popularity': 79}, {'name': 'Tanner Adell', 'followers': 116218, 'popularity': 54},
-    {'name': 'Tape B', 'followers': 72494, 'popularity': 53}, {'name': 'Tessla', 'followers': 358, 'popularity': 4},
-    {'name': 'Torren Foot , Airwolf Paradise', 'followers': 0, 'popularity': 0}, {'name': 'TWICE', 'followers': 21586371, 'popularity': 79},
-    {'name': 'Two Friends', 'followers': 237167, 'popularity': 56}, {'name': 'Tyler, the Creator', 'followers': 20926976, 'popularity': 91},
-    {'name': 'Vincent Lima', 'followers': 60660, 'popularity': 54}, {'name': 'Viperactive', 'followers': 13688, 'popularity': 40},
-    {'name': 'Wallows', 'followers': 2922933, 'popularity': 72}, {'name': 'Wasia Project', 'followers': 335672, 'popularity': 57},
-    {'name': 'Wave to Earth', 'followers': 4162678, 'popularity': 76}, {'name': 'Wild Rivers', 'followers': 278270, 'popularity': 65},
-    {'name': 'Willow Avalon', 'followers': 158903, 'popularity': 52}, {'name': 'Winnetka Bowling League', 'followers': 78904, 'popularity': 46},
-    {'name': 'Winyah', 'followers': 3986, 'popularity': 35}, {'name': 'Wunderhorse', 'followers': 155400, 'popularity': 63},
-    {'name': 'Wyatt Flores', 'followers': 372174, 'popularity': 67}, {'name': 'Xaviersobased', 'followers': 128173, 'popularity': 61},
-    {'name': 'Xdinary Heroes', 'followers': 1163270, 'popularity': 60}, {'name': 'Yana', 'followers': 24319, 'popularity': 50},
-    {'name': 'Young Miko', 'followers': 3703506, 'popularity': 77}, {'name': 'Zinadelphia', 'followers': 46263, 'popularity': 44},
-    {'name': 'Zoe KoMARINA', 'followers': 0, 'popularity': 0}
-]
-
-# This is manually created to get the id and monthly listeners of all artists 170 acts took 2 hours.
-# Set manualSpotifyScrape to None to make it to the code will make a best-guess from genreDict in Spotify, rather than use the id info
-# to get the Spotify popularity and follower data.
-manualSpotifyScrape = [
-    {'name' : '2Hollis' , 'id' : '72NhFAGG5Pt91VbheJeEPG', 'monthly_listeners' : 1024674},
-    {'name' : 'A$AP Rocky' , 'id' : '13ubrt8QOOCPljQ2FL1Kca', 'monthly_listeners' : 37586045},
-    {'name' : 'Alemeda' , 'id' : '33Se8kMYeTPkeeM2LnsPF8', 'monthly_listeners' : 170585},
-    {'name' : 'Alex Warren' , 'id' : '0fTSzq9jAh4c36UVb4V7CB', 'monthly_listeners' : 27385019},
-    {'name' : 'ALEXSUCKS' , 'id' : '0zmxCsd8aIJHfNC95gdT2i', 'monthly_listeners' : 384438},
-    {'name' : r"Aliyah's Interlude" , 'id' : '7maQENQfaF8xDdEJp4i545', 'monthly_listeners' : 2335373},
-    {'name' : 'ALLEYCVT' , 'id' : '4JxRK2gxmri7L7OWaxnVD1', 'monthly_listeners' : 474010},
-    {'name' : 'Amaarae' , 'id' : '21UPYSRWFKwtqvSAnFnSvS', 'monthly_listeners' : 5502741},
-    {'name' : 'Artemas' , 'id' : '0PCCGZ0wGLizHt2KZ7hhA2', 'monthly_listeners' : 18388735},
-    {'name' : 'Azzecca' , 'id' : '2k5DY2QDU3kBi5DX7OQlWj', 'monthly_listeners' : 304787},
-    {'name' : r"Barry Can't Swim" , 'id' : '0vTVU0KH0CVzijsoKGsTPl', 'monthly_listeners' : 3036482},
-    {'name' : 'benches' , 'id' : '62U36LEen0wpm8L5q68iVu', 'monthly_listeners' : 278265},
-    {'name' : 'Bilmuri' , 'id' : '5Rc75vGFBWZPgL7EXb4k89', 'monthly_listeners' : 682438},
-    {'name' : 'Black Party' , 'id' : '4C9Tvlt8v7d8R6h98FgdUy', 'monthly_listeners' : 357828},
-    {'name' : 'Bladee' , 'id' : '2xvtxDNInKDV4AvGmjw6d1', 'monthly_listeners' : 1453670},
-    {'name' : 'Bleachers' , 'id' : '2eam0iDomRHGBypaDQLwWI', 'monthly_listeners' : 9041939},
-    {'name' : 'The Blessed Madonna' , 'id' : '4TvhRzxIL1le2PWCeUqxQw', 'monthly_listeners' : 6374173},
-    {'name' : 'BLK Odyssy' , 'id' : '062tCT8GVioC9EMiI9jeOV', 'monthly_listeners' : 841241},
-    {'name' : 'Bo Staloch' , 'id' : '2EtiCherSxAKu7mnbU8Poh', 'monthly_listeners' : 382491},
-    {'name' : 'Bossman Dlow' , 'id' : '23xFbA9rYgRX8mreqysWPc', 'monthly_listeners' : 5943720},
-    {'name' : 'Boynextdoor' , 'id' : '4hnHLgMSOiqERWBL4jINP1', 'monthly_listeners' : 2790783},
-    {'name' : 'BUNT.' , 'id' : '2CpLIMBoE2ZzyY3ZBCRZ7j', 'monthly_listeners' : 7793318},
-    {'name' : 'Bôa' , 'id' : '5jTtGLk1mGFMY5lQOvJYUj', 'monthly_listeners' : 10409793},
-    {'name' : 'Ca7riel y Paco Amoroso' , 'id' : '6I8TDGeUmmLom8auKPzMdX', 'monthly_listeners' : 3057145},
-    {'name' : 'Cage the Elephant' , 'id' : '26T3LtbuGT1Fu9m0eRq5X3', 'monthly_listeners' : 15392470},
-    {'name' : 'Carole Ades' , 'id' : '3WuoKYR1zeLGxR29c53Vdr', 'monthly_listeners' : 143074},
-    {'name' : 'Caroline Kingsbury' , 'id' : '0uE0bzpIfuZ9XVduu0byzg', 'monthly_listeners' : 557598},
-    {'name' : 'Carter Vail' , 'id' : '4Bu9DnBZ12oX7MiiaJy9hK', 'monthly_listeners' : 302796},
-    {'name' : 'Cassandra Coleman' , 'id' : '0', 'monthly_listeners' : 0},
-    {'name' : 'Charlotte Lawrence' , 'id' : '7LImGq5KnzQobZciDJpeJb', 'monthly_listeners' : 2165946},
-    {'name' : 'Chase & Status' , 'id' : '3jNkaOXasoc7RsxdchvEVq', 'monthly_listeners' : 6775888},
-    {'name' : 'Chicago Made' , 'id' : '0', 'monthly_listeners' : 0},
-    {'name' : 'Chicago Youth Symphony Orchestra' , 'id' : '38F4eptEGZAvPhZEjWS46W', 'monthly_listeners' : 489},
-    {'name' : 'Clairo' , 'id' : '3l0CmX0FuQjFxr8SK7Vqag', 'monthly_listeners' : 17896660},
-    {'name' : 'Cloonee' , 'id' : '7MdlXmq2HViAJWo9cf30sR', 'monthly_listeners' : 3885163},
-    {'name' : 'Colby Acuff' , 'id' : '2L9DVKDXY3W8uRl5TwLbMC', 'monthly_listeners' : 1177543},
-    {'name' : 'The Criticals' , 'id' : '6ArhcOX0zzUe8GDzLTgBrK', 'monthly_listeners' : 96217},
-    {'name' : 'Damiano David' , 'id' : '7AaGbSgUxJFuZ49VvclNH6', 'monthly_listeners' : 8788979},
-    {'name' : 'Daniel Allan' , 'id' : '5JQ1XqKJ2Art01rF4tu1Ra', 'monthly_listeners' : 708768},
-    {'name' : 'The Dare' , 'id' : '2mqiqsaX4LzFnUP7PmHGAb', 'monthly_listeners' : 1386244},
-    {'name' : 'Del Water Gap' , 'id' : '0xPoVNPnxIIUS1vrxAYV00', 'monthly_listeners' : 2470831},
-    {'name' : 'DJ Heather' , 'id' : '6K3wEom1qiZrmZ6pTNdLcl', 'monthly_listeners' : 1572},
-    {'name' : 'DJO' , 'id' : '5p9HO3XC5P3BLxJs5Mtrhm', 'monthly_listeners' : 21258791},
-    {'name' : 'Doechii' , 'id' : '4E2rKHVDssGJm2SCDOMMJB', 'monthly_listeners' : 57512177},
-    {'name' : 'Dogpark' , 'id' : '2VlmDb05CPERyCZfmZI3x7', 'monthly_listeners' : 179515},
-    {'name' : 'Dom Dolla' , 'id' : '205i7E8fNVfojowcQSfK9m', 'monthly_listeners' : 9098939},
-    {'name' : 'Dominic Fike' , 'id' : '6USv9qhCn6zfxlBQIYJ9qs', 'monthly_listeners' : 23747211},
-    {'name' : 'Dr. Fresch' , 'id' : '1htHgbGwgCWJBfGiQwcRqC', 'monthly_listeners' : 902359},
-    {'name' : 'The Droptines' , 'id' : '5MKl9FP3O6MpQhVx7QRFyc', 'monthly_listeners' : 365662},
-    {'name' : 'Dua Saleh' , 'id' : '2DGBzoOLcKLK3eWxFyugdB', 'monthly_listeners' : 264383},
-    {'name' : 'Durand Bernarr' , 'id' : '2d6ggH1oVt4z2zCuY2u5DW', 'monthly_listeners' : 544556},
-    {'name' : 'Eddie and the Getaway' , 'id' : '7oTkfyZOcKQuCUFnSVLB3j', 'monthly_listeners' : 620176},
-    {'name' : 'Fcukers' , 'id' : '3UtzOHYm3lQALkKzVD4wyO', 'monthly_listeners' : 343054},
-    {'name' : 'Finneas' , 'id' : '37M5pPGs6V1fchFJSgCguX', 'monthly_listeners' : 8050971},
-    {'name' : 'Flipturn' , 'id' : '7FKTg75ADVMZgY3P9ZMRtH', 'monthly_listeners' : 1836377},
-    {'name' : 'Flowerovlove' , 'id' : '1JspXUvEv3D9ddMeLNqYWj', 'monthly_listeners' : 1225680},
-    {'name' : 'Flux Pavilion' , 'id' : '7muzHifhMdnfN1xncRLOqk', 'monthly_listeners' : 1869462},
-    {'name' : 'Foster the People' , 'id' : '7gP3bB2nilZXLfPHJhMdvc', 'monthly_listeners' : 17911723},
-    {'name' : 'Fujii Kaze' , 'id' : '6bDWAcdtVR3WHz2xtiIPUi', 'monthly_listeners' : 7529588},
-    {'name' : 'Gigi Perez' , 'id' : '1iCnM8foFssWlPRLfAbIwo', 'monthly_listeners' : 28271289},
-    {'name' : 'Girl Tones' , 'id' : '1Tq0nryXkwLARcHDMIZbY6', 'monthly_listeners' : 55884},
-    {'name' : 'Glass Beams' , 'id' : '1LTFJvVvRw7ghAyThxYmnF', 'monthly_listeners' : 716436},
-    {'name' : 'Gracie Abrams' , 'id' : '4tuJ0bMpJh08umKkEXKUI5', 'monthly_listeners' : 50068233},
-    {'name' : 'Graham Barham' , 'id' : '3WHWgx8Dh0IqQT1BMDTeE3', 'monthly_listeners' : 2054261},
-    {'name' : 'Gryffin' , 'id' : '2ZRQcIgzPCVaT9XKhXZIzh', 'monthly_listeners' : 7509958},
-    {'name' : 'Half Alive' , 'id' : '7sOR7gk6XUlGnxj3p9F54k', 'monthly_listeners' : 1536433},
-    {'name' : 'Hex Cougar' , 'id' : '0AlNB0yIoyxdKloLmK9AOR', 'monthly_listeners' : 194502},
-    {'name' : 'hey, nothing' , 'id' : '6YWqJQS9TETSb8LgZONUzI', 'monthly_listeners' : 563117},
-    {'name' : 'Ian' , 'id' : '23hzc59PkIUau13dqXx5Ef', 'monthly_listeners' : 5253311},
-    {'name' : 'Isabel LaRosa' , 'id' : '5arKwJZEvT5uKq4o0JfqR4', 'monthly_listeners' : 11365798},
-    {'name' : 'Isaiah Rashad' , 'id' : '6aaMZ3fcfLv4tEbmY7bjRM', 'monthly_listeners' : 5275833},
-    {'name' : 'ISOxo' , 'id' : '4zVCMnjw54nkhGHU4e1Pav', 'monthly_listeners' : 550639},
-    {'name' : 'Jade LeMac' , 'id' : '4JnJjqxsTp8E5rZsyITf63', 'monthly_listeners' : 3920242},
-    {'name' : 'Jane Remover' , 'id' : '2rLGlNI6htigNxx172qxLu', 'monthly_listeners' : 330722},
-    {'name' : 'Jesse Detor' , 'id' : '3HljFuKgpaXNKfIlFZWCEk', 'monthly_listeners' : 42802},
-    {'name' : 'Jev' , 'id' : '6StZbL9v3UpuaMwIoq8fyW', 'monthly_listeners' : 314147},
-    {'name' : 'Jigitz' , 'id' : '7sfn5Z6ItzDkOF9cYzxWPZ', 'monthly_listeners' : 1176625},
-    {'name' : 'Joe P' , 'id' : '3pIwImfumJioKb0zHHP61x', 'monthly_listeners' : 484086},
-    {'name' : 'Joey Valence & Brae' , 'id' : '1q4618qKswelCGLoanFKQh', 'monthly_listeners' : 3816483},
-    {'name' : 'JPEGMafia' , 'id' : '6yJ6QQ3Y5l0s0tn7b0arrO', 'monthly_listeners' : 2027101},
-    {'name' : 'Julie' , 'id' : '3VNzWLePg9jTvQ2ximYOzW', 'monthly_listeners' : 634972},
-    {'name' : 'Junior Varsity' , 'id' : '27tsCOGutD6wmFnv4eKWMp', 'monthly_listeners' : 459160},
-    {'name' : 'Kaicrewsade' , 'id' : '4WgDm2J3jztBZSc1S0lMsx', 'monthly_listeners' : 41081},
-    {'name' : 'KATSEYE' , 'id' : '3c0gDdb9lhnHGFtP4prQpn', 'monthly_listeners' : 6727964},
-    {'name' : 'Kenny Mason' , 'id' : '4mwdnO2jZrMmMVrjcHsZBv', 'monthly_listeners' : 1803809},
-    {'name' : 'Kickflip' , 'id' : '6F4yXjmhQBqo6HVr6K234k', 'monthly_listeners' : 498647},
-    {'name' : 'KNOCK2' , 'id' : '6mmSS7itNWKbapgG2eZbIg', 'monthly_listeners' : 1577219},
-    {'name' : 'Korn' , 'id' : '3RNrq3jvMZxD9ZyoOZbQOD', 'monthly_listeners' : 11752222},
-    {'name' : 'La Femme' , 'id' : '5VTWoYYizcOY3uIKnxeCGI', 'monthly_listeners' : 1411472},
-    {'name' : 'Laila!' , 'id' : '7tHTnyrdTNM152slc8aQ3t', 'monthly_listeners' : 1364309},
-    {'name' : 'Landon Barker' , 'id' : '7tWnepocfeqynsYC75hWoF', 'monthly_listeners' : 101992},
-    {'name' : 'Landon Conrath' , 'id' : '2PJ06l59DomDd440az768u', 'monthly_listeners' : 349597},
-    {'name' : 'Latin Mafia' , 'id' : '6XTGKOV9jceQ6f67lnhpbF', 'monthly_listeners' : 7083863},
-    {'name' : 'Layz' , 'id' : '2ozQcs5XxFaj5fvA02zhwo', 'monthly_listeners' : 145042},
-    {'name' : 'Lekan' , 'id' : '3Z7dkUrTApDgi6npZfoHVv', 'monthly_listeners' : 127967},
-    {'name' : 'Levity' , 'id' : '1PbO7aQiVeKbGp8GYWDL9C', 'monthly_listeners' : 820240},
-    {'name' : 'Luke Combs' , 'id' : '718COspgdWOnwOFpJHRZHS', 'monthly_listeners' : 25036035},
-    {'name' : 'Magdalena Bay' , 'id' : '1oPRcJUkloHaRLYx0olBLJ', 'monthly_listeners' : 3890170},
-    {'name' : 'Mariah the Scientist' , 'id' : '7HO5fOXE4gh3lzZn64tX2E', 'monthly_listeners' : 4209706},
-    {'name' : 'The Marias' , 'id' : '2sSGPbdZJkaSE2AbcGOACx', 'monthly_listeners' : 23793821},
-    {'name' : 'Maribou State' , 'id' : '7zrkALJ9ayRjzysp4QYoEg', 'monthly_listeners' : 4550097},
-    {'name' : 'Mark Ambor' , 'id' : '11p2E654TTU8e0nZWBR4AL', 'monthly_listeners' : 13182717},
-    {'name' : 'Marlon Hoffstadt' , 'id' : '0HHa7ZJZxUQlg5l2mB0N0f', 'monthly_listeners' : 4129162},
-    {'name' : 'Martin Garrix' , 'id' : '60d24wfXkVzDSfLS6hyCjZ', 'monthly_listeners' : 21907142},
-    {'name' : 'Mary Droppinz' , 'id' : '4tPVnr7VB15UA9TRsie3cS', 'monthly_listeners' : 61563},
-    {'name' : 'Matt Champion' , 'id' : '29Oq9Nv8zLgu3IvX1tIpbm', 'monthly_listeners' : 854164},
-    {'name' : 'Mau P' , 'id' : '0w1sbtZVQoK6GzV4A4OkCv', 'monthly_listeners' : 5027702},
-    {'name' : 'Max McNown' , 'id' : '340PS4ZcZ4UCBgyrXzEjcp', 'monthly_listeners' : 7196544},
-    {'name' : 'Midnight Generation' , 'id' : '4CKIGHCZRzNoiNDSaW5eaq', 'monthly_listeners' : 476469},
-    {'name' : 'Mk.gee' , 'id' : '7tr9pbgNEKtG0GQTKe08Tz', 'monthly_listeners' : 1848754},
-    {'name' : 'Montell Fish' , 'id' : '5nvWOyAkfNgVLKESq4fOj2', 'monthly_listeners' : 10523659},
-    {'name' : 'Murda Beatz' , 'id' : '3CbYyyd8wH3RT6t0jwpdzC', 'monthly_listeners' : 2540621},
-    {'name' : 'Naomi Scott' , 'id' : '2Zi3RrdQqk63Xj0914STkS', 'monthly_listeners' : 3658953},
-    {'name' : 'New Dad' , 'id' : '1yz8XixOiIJJ9IxjbnfYV6', 'monthly_listeners' : 495951},
-    {'name' : 'Nimino' , 'id' : '5x0R3zoC09GMiRJomoexLV', 'monthly_listeners' : 5438550},
-    {'name' : 'Nourished By Time' , 'id' : '7zNkqI6qRr0OJ4XO1Pw29g', 'monthly_listeners' : 242880},
-    {'name' : 'Ocean Alley' , 'id' : '18lpwfiys4GtdHWNUu9qQr', 'monthly_listeners' : 2957507},
-    {'name' : 'Old Mervs' , 'id' : '3N8YzKqrEQonvd5RLQ4iYg', 'monthly_listeners' : 390737},
-    {'name' : 'Ole 60' , 'id' : '3iXeAZ8862AyoZ5ZGg800O', 'monthly_listeners' : 2271426},
-    {'name' : 'Olivia Rodrigo ' , 'id' : '1McMsnEElThX1knmY4oliG', 'monthly_listeners' : 45625465},
-    {'name' : 'Orion Sun' , 'id' : '2efrqekWSHlvhATD50AG3m', 'monthly_listeners' : 2588644},
-    {'name' : 'Orla Gartland' , 'id' : '3ajf12ub55b51qcS94d9Co', 'monthly_listeners' : 777594},
-    {'name' : 'Otoboke Beaver' , 'id' : '0HutkALC7kq2L8b9bnZUkq', 'monthly_listeners' : 71422},
-    {'name' : 'Overmono' , 'id' : '01PnN11ovfen6xUOHfNpn3', 'monthly_listeners' : 1308244},
-    {'name' : 'People R Ugly' , 'id' : '1kXY7pco0sC6GEgJW9xxyI', 'monthly_listeners' : 280278},
-    {'name' : 'Prospa' , 'id' : '6HabM2PUM519iIxervGWSb', 'monthly_listeners' : 1096801},
-    {'name' : 'Rachel Grae' , 'id' : '0ekCwZGQUkAISV1h48jlHn', 'monthly_listeners' : 1178239},
-    {'name' : 'Raecola' , 'id' : '4ZLYabLbKeMkfAsFNESfpj', 'monthly_listeners' : 4485},
-    {'name' : 'Ratboys' , 'id' : '1SoBNpuC0N4nvaQFENS0qf', 'monthly_listeners' : 123370},
-    {'name' : 'Ravyn Lenae' , 'id' : '5RTLRtXjbXI2lSXc6jxlAz', 'monthly_listeners' : 7647105},
-    {'name' : 'Rebecca Black' , 'id' : '3Vl9fyKMIdLMswk8ai3mm9', 'monthly_listeners' : 1038177},
-    {'name' : 'Remi Wolf' , 'id' : '0NB5HROxc8dDBXpkIi1v3d', 'monthly_listeners' : 4238708},
-    {'name' : 'Role Model' , 'id' : '1dy5WNgIKQU6ezkpZs4y8z', 'monthly_listeners' : 5512373},
-    {'name' : 'Royel Otis' , 'id' : '5b5bt4mZQpJMoCRbiQ7diH', 'monthly_listeners' : 7274375},
-    {'name' : 'RÜFÜS DU SOL' , 'id' : '5Pb27ujIyYb33zBqVysBkj', 'monthly_listeners' : 9464147},
-    {'name' : 'Sabrina Carpenter' , 'id' : '74KM79TiuVKeVCqs8QtB0B', 'monthly_listeners' : 67217251},
-    {'name' : 'Salute' , 'id' : '1np8xozf7ATJZDi9JX8Dx5', 'monthly_listeners' : 930567},
-    {'name' : 'Sam Austins' , 'id' : '0zmnfFQX8LWVVZyRPHRx1V', 'monthly_listeners' : 2793085},
-    {'name' : 'Sammy Virji' , 'id' : '1GuqTQbuixFHD6eBkFwVcb', 'monthly_listeners' : 3657129},
-    {'name' : 'Sierra Ferrell' , 'id' : '3oVcF3VdpMuvMvLLyHPT4t', 'monthly_listeners' : 2404603},
-    {'name' : 'Silly Goose' , 'id' : '0GicbfMtwhn3Ch0PdwkADQ', 'monthly_listeners' : 46648},
-    {'name' : 'Sofia Camara' , 'id' : '5bdLfpk3TpFVwrlHWmPL55', 'monthly_listeners' : 1583851},
-    {'name' : 'Star Bandz' , 'id' : '5qhDQveADDnjIZQ85AtgDM', 'monthly_listeners' : 652868},
-    {'name' : 'Still Woozy' , 'id' : '4iMO20EPodreIaEl8qW66y', 'monthly_listeners' : 3856912},
-    {'name' : 'Sunami' , 'id' : '1pBeRGeBHNPLy95LswDViS', 'monthly_listeners' : 263948},
-    {'name' : 'The Symposium' , 'id' : '2FQgnKHydnhSnRS17BSy28', 'monthly_listeners' : 249247},
-    {'name' : 'T-Pain' , 'id' : '3aQeKQSyrW4qWr35idm0cy', 'monthly_listeners' : 19239892},
-    {'name' : 'Tanner Adell' , 'id' : '5xKVALj2MSqOHmQhburCM8', 'monthly_listeners' : 1179201},
-    {'name' : 'Tape B' , 'id' : '59tlsKpLWoLTxjNNS2wdPi', 'monthly_listeners' : 683413},
-    {'name' : 'Tessla' , 'id' : '3bIr4g7fZxrqbUbAEqFsCS', 'monthly_listeners' : 1024},
-    {'name' : 'Torren Foot' , 'id' : '7lQOxDl96wmNoqGoW4kgv4', 'monthly_listeners' : 1074047},
-    {'name' : 'Airwolf Paradise' , 'id' : '0c3I7EPZUCCG7khbUwQDjl', 'monthly_listeners' : 191620},
-    {'name' : 'TWICE' , 'id' : '7n2Ycct7Beij7Dj7meI4X0', 'monthly_listeners' : 10004161},
-    {'name' : 'Two Friends' , 'id' : '44Ewva5aHOX00EwaX2D2mh', 'monthly_listeners' : 1239912},
-    {'name' : 'Tyler, the Creator' , 'id' : '4V8LLVI7PbaPR0K2TGSxFF', 'monthly_listeners' : 47578912},
-    {'name' : 'Vincent Lima' , 'id' : '7AB7bdCR5saJ0b9C4RuceX', 'monthly_listeners' : 548338},
-    {'name' : 'Viperactive' , 'id' : '7HeSEuZA4D7EtdygBjCbi9', 'monthly_listeners' : 197360},
-    {'name' : 'Wallows' , 'id' : '0NIPkIjTV8mB795yEIiPYL', 'monthly_listeners' : 8842850},
-    {'name' : 'Wasia Project' , 'id' : '7poQNrOwZoUcoqihg4Xex0', 'monthly_listeners' : 1248435},
-    {'name' : 'Wave to Earth' , 'id' : '5069JTmv5ZDyPeZaCCXiCg', 'monthly_listeners' : 8496682},
-    {'name' : 'Wild Rivers' , 'id' : '59sBwR0jPSTrbMtuTkRPN5', 'monthly_listeners' : 3069026},
-    {'name' : 'Willow Avalon' , 'id' : '6EEkobfnenJF603WO8nUrR', 'monthly_listeners' : 633317},
-    {'name' : 'Winnetka Bowling League' , 'id' : '4ug3P1K8BaCdJXROrqHqhu', 'monthly_listeners' : 381235},
-    {'name' : 'Winyah' , 'id' : '4iyP4VOGOLzbt2Vxcyu6zG', 'monthly_listeners' : 63927},
-    {'name' : 'Wunderhorse' , 'id' : '41pd7r1XBRsvdxY3vHEgib', 'monthly_listeners' : 1367962},
-    {'name' : 'Wyatt Flores' , 'id' : '46lEQmDJLJeyltECJYJv1Y', 'monthly_listeners' : 3209598},
-    {'name' : 'Xaviersobased' , 'id' : '2oM7LMPFu882oC6jSwEqjd', 'monthly_listeners' : 497291},
-    {'name' : 'Xdinary Heroes' , 'id' : '1khChLj7REGqjM043PlYyn', 'monthly_listeners' : 701271},
-    {'name' : 'Yana' , 'id' : '6bR96LMvgvYgDlumR7JwPX', 'monthly_listeners' : 393556},
-    {'name' : 'Young Miko' , 'id' : '3qsKSpcV3ncke3hw52JSMB', 'monthly_listeners' : 19688691},
-    {'name' : 'Zinadelphia' , 'id' : '2bTnGGWvuVQsMVyg31rmum', 'monthly_listeners' : 252632},
-    {'name' : 'Zoe Ko' , 'id' : '493xhO4GiL1eOhWUBt8CzZ', 'monthly_listeners' : 177609},
-    {'name' : 'MARINA' , 'id' : '6CwfuxIqcltXDGjfZsMd9A', 'monthly_listeners' : 10931048}
+    {'name': '2hollis', 'followers': 238593, 'popularity': 65, 'monthly_listeners': 1024674},
+    {'name': 'A$AP Rocky', 'followers': 16224188, 'popularity': 86, 'monthly_listeners': 37586045},
+    {'name': 'Alemeda', 'followers': 50632, 'popularity': 40, 'monthly_listeners': 170585},
+    {'name': 'Alex Warren', 'followers': 1010113, 'popularity': 84, 'monthly_listeners': 27385019},
+    {'name': 'ALEXSUCKS', 'followers': 26280, 'popularity': 44, 'monthly_listeners': 384438},
+    {'name': "Aliyah's Interlude", 'followers': 288550, 'popularity': 57, 'monthly_listeners': 2335373},
+    {'name': 'ALLEYCVT', 'followers': 62220, 'popularity': 53, 'monthly_listeners': 474010},
+    {'name': 'Amaarae', 'followers': 508602, 'popularity': 66, 'monthly_listeners': 5502741},
+    {'name': 'Artemas', 'followers': 1179230, 'popularity': 77, 'monthly_listeners': 18388735},
+    {'name': 'Azzecca', 'followers': 24689, 'popularity': 43, 'monthly_listeners': 304787},
+    {'name': "Barry Can't Swim", 'followers': 224720, 'popularity': 64, 'monthly_listeners': 3036482},
+    {'name': 'benches', 'followers': 48555, 'popularity': 48, 'monthly_listeners': 278265},
+    {'name': 'Bilmuri', 'followers': 199408, 'popularity': 61, 'monthly_listeners': 682438},
+    {'name': 'bLAck pARty', 'followers': 250248, 'popularity': 44, 'monthly_listeners': 357828},
+    {'name': 'Bladee', 'followers': 572189, 'popularity': 68, 'monthly_listeners': 1453670},
+    {'name': 'Bleachers', 'followers': 842770, 'popularity': 69, 'monthly_listeners': 9041939},
+    {'name': 'The Blessed Madonna', 'followers': 115244, 'popularity': 66, 'monthly_listeners': 6374173},
+    {'name': 'BLK ODYSSY', 'followers': 106369, 'popularity': 54, 'monthly_listeners': 841241},
+    {'name': 'Bo Staloch', 'followers': 19191, 'popularity': 48, 'monthly_listeners': 382491},
+    {'name': 'BossMan Dlow', 'followers': 627340, 'popularity': 72, 'monthly_listeners': 5943720},
+    {'name': 'BOYNEXTDOOR', 'followers': 1320753, 'popularity': 71, 'monthly_listeners': 2790783},
+    {'name': 'BUNT.', 'followers': 225584, 'popularity': 69, 'monthly_listeners': 7793318},
+    {'name': 'bôa', 'followers': 1055589, 'popularity': 71, 'monthly_listeners': 10409793},
+    {'name': 'CA7RIEL & Paco Amoroso', 'followers': 306462, 'popularity': 71, 'monthly_listeners': 3057145},
+    {'name': 'Cage The Elephant', 'followers': 4082705, 'popularity': 75, 'monthly_listeners': 15392470},
+    {'name': 'Carol Ades', 'followers': 26275, 'popularity': 41, 'monthly_listeners': 143074},
+    {'name': 'Caroline Kingsbury', 'followers': 20282, 'popularity': 46, 'monthly_listeners': 557598},
+    {'name': 'Carter Vail', 'followers': 109611, 'popularity': 48, 'monthly_listeners': 302796},
+    {'name': 'Charlotte Lawrence', 'followers': 1180039, 'popularity': 57, 'monthly_listeners': 2165946},
+    {'name': 'Chase & Status', 'followers': 1127270, 'popularity': 71, 'monthly_listeners': 6775888},
+    {'name': 'Chicago Youth Symphony Orchestra', 'followers': 133, 'popularity': 3, 'monthly_listeners': 489},
+    {'name': 'Clairo', 'followers': 5892342, 'popularity': 81, 'monthly_listeners': 17896660},
+    {'name': 'Cloonee', 'followers': 191831, 'popularity': 63, 'monthly_listeners': 3885163},
+    {'name': 'Colby Acuff', 'followers': 131554, 'popularity': 55, 'monthly_listeners': 1177543},
+    {'name': 'The Criticals', 'followers': 20271, 'popularity': 35, 'monthly_listeners': 96217},
+    {'name': 'Damiano David', 'followers': 424720, 'popularity': 71, 'monthly_listeners': 8788979},
+    {'name': 'Daniel Allan', 'followers': 21107, 'popularity': 49, 'monthly_listeners': 708768},
+    {'name': 'The Dare', 'followers': 144668, 'popularity': 56, 'monthly_listeners': 1386244},
+    {'name': 'Del Water Gap', 'followers': 245862, 'popularity': 63, 'monthly_listeners': 2470831},
+    {'name': 'DJ Heather', 'followers': 1932, 'popularity': 7, 'monthly_listeners': 1572},
+    {'name': 'Djo', 'followers': 1892859, 'popularity': 75, 'monthly_listeners': 21258791},
+    {'name': 'Doechii', 'followers': 2545439, 'popularity': 88, 'monthly_listeners': 57512177},
+    {'name': 'Dogpark', 'followers': 31756, 'popularity': 43, 'monthly_listeners': 179515},
+    {'name': 'Dom Dolla', 'followers': 542063, 'popularity': 72, 'monthly_listeners': 9098939},
+    {'name': 'Dominic Fike', 'followers': 2063983, 'popularity': 79, 'monthly_listeners': 23747211},
+    {'name': 'Dr. Fresch', 'followers': 134919, 'popularity': 52, 'monthly_listeners': 902359},
+    {'name': 'The Droptines', 'followers': 16550, 'popularity': 49, 'monthly_listeners': 365662},
+    {'name': 'Dua Saleh', 'followers': 109226, 'popularity': 46, 'monthly_listeners': 264383},
+    {'name': 'Durand Bernarr', 'followers': 122321, 'popularity': 54, 'monthly_listeners': 544556},
+    {'name': 'Eddie And The Getaway', 'followers': 87094, 'popularity': 54, 'monthly_listeners': 620176},
+    {'name': 'Fcukers', 'followers': 30767, 'popularity': 47, 'monthly_listeners': 343054},
+    {'name': 'FINNEAS', 'followers': 2204299, 'popularity': 70, 'monthly_listeners': 8050971},
+    {'name': 'flipturn', 'followers': 224244, 'popularity': 63, 'monthly_listeners': 1836377},
+    {'name': 'flowerovlove', 'followers': 108458, 'popularity': 54, 'monthly_listeners': 1225680},
+    {'name': 'Flux Pavilion', 'followers': 717349, 'popularity': 58, 'monthly_listeners': 1869462},
+    {'name': 'Foster The People', 'followers': 3965150, 'popularity': 73, 'monthly_listeners': 17911723},
+    {'name': 'Fujii Kaze', 'followers': 4022533, 'popularity': 75, 'monthly_listeners': 7529588},
+    {'name': 'Gigi Perez', 'followers': 1020225, 'popularity': 80, 'monthly_listeners': 28271289},
+    {'name': 'Girl Tones', 'followers': 3997, 'popularity': 28, 'monthly_listeners': 55884},
+    {'name': 'Glass Beams', 'followers': 445062, 'popularity': 54, 'monthly_listeners': 716436},
+    {'name': 'Gracie Abrams', 'followers': 5028594, 'popularity': 89, 'monthly_listeners': 50068233},
+    {'name': 'Graham Barham', 'followers': 87074, 'popularity': 63, 'monthly_listeners': 2054261},
+    {'name': 'Gryffin', 'followers': 984070, 'popularity': 69, 'monthly_listeners': 7509958},
+    {'name': 'half•alive', 'followers': 722802, 'popularity': 60, 'monthly_listeners': 1536433},
+    {'name': 'Hex Cougar', 'followers': 33323, 'popularity': 41, 'monthly_listeners': 194502},
+    {'name': 'hey, nothing', 'followers': 147696, 'popularity': 54, 'monthly_listeners': 563117},
+    {'name': 'ian', 'followers': 475246, 'popularity': 71, 'monthly_listeners': 5253311},
+    {'name': 'Isabel LaRosa', 'followers': 2240407, 'popularity': 74, 'monthly_listeners': 11365798},
+    {'name': 'Isaiah Rashad', 'followers': 1549793, 'popularity': 70, 'monthly_listeners': 5275833},
+    {'name': 'ISOxo', 'followers': 78406, 'popularity': 55, 'monthly_listeners': 550639},
+    {'name': 'Jade LeMac', 'followers': 217274, 'popularity': 66, 'monthly_listeners': 3920242},
+    {'name': 'Jane Remover', 'followers': 90496, 'popularity': 54, 'monthly_listeners': 330722},
+    {'name': 'Jesse Detor', 'followers': 14557, 'popularity': 35, 'monthly_listeners': 42802},
+    {'name': 'JEV', 'followers': 12186, 'popularity': 45, 'monthly_listeners': 314147},
+    {'name': 'jigitz', 'followers': 22298, 'popularity': 56, 'monthly_listeners': 1176625},
+    {'name': 'Joe P', 'followers': 138744, 'popularity': 49, 'monthly_listeners': 484086},
+    {'name': 'Joey Valence & Brae', 'followers': 595358, 'popularity': 66, 'monthly_listeners': 3816483},
+    {'name': 'JPEGMAFIA', 'followers': 967184, 'popularity': 69, 'monthly_listeners': 2027101},
+    {'name': 'julie', 'followers': 346764, 'popularity': 56, 'monthly_listeners': 634972},
+    {'name': 'Junior Varsity', 'followers': 36846, 'popularity': 49, 'monthly_listeners': 459160},
+    {'name': 'Kaicrewsade', 'followers': 4062, 'popularity': 30, 'monthly_listeners': 41081},
+    {'name': 'KATSEYE', 'followers': 1285940, 'popularity': 68, 'monthly_listeners': 6727964},
+    {'name': 'Kenny Mason', 'followers': 207994, 'popularity': 59, 'monthly_listeners': 1803809},
+    {'name': 'KickFlip', 'followers': 182220, 'popularity': 54, 'monthly_listeners': 498647},
+    {'name': 'Knock2', 'followers': 137835, 'popularity': 63, 'monthly_listeners': 1577219},
+    {'name': 'Korn', 'followers': 8797557, 'popularity': 77, 'monthly_listeners': 11752222},
+    {'name': 'La Femme', 'followers': 569274, 'popularity': 59, 'monthly_listeners': 1411472},
+    {'name': 'Laila!', 'followers': 219193, 'popularity': 55, 'monthly_listeners': 1364309},
+    {'name': 'Landon Barker', 'followers': 39883, 'popularity': 42, 'monthly_listeners': 101992},
+    {'name': 'Landon Conrath', 'followers': 40434, 'popularity': 49, 'monthly_listeners': 349597},
+    {'name': 'LATIN MAFIA', 'followers': 1421997, 'popularity': 75, 'monthly_listeners': 7083863},
+    {'name': 'LAYZ', 'followers': 29970, 'popularity': 41, 'monthly_listeners': 145042},
+    {'name': 'Lekan', 'followers': 14615, 'popularity': 37, 'monthly_listeners': 127967},
+    {'name': 'Levity', 'followers': 90616, 'popularity': 54, 'monthly_listeners': 820240},
+    {'name': 'Luke Combs', 'followers': 12449273, 'popularity': 86, 'monthly_listeners': 25036035},
+    {'name': 'Magdalena Bay', 'followers': 411214, 'popularity': 68, 'monthly_listeners': 3890170},
+    {'name': 'Mariah the Scientist', 'followers': 755789, 'popularity': 69, 'monthly_listeners': 4209706},
+    {'name': 'The Marías', 'followers': 2356420, 'popularity': 82, 'monthly_listeners': 23793821},
+    {'name': 'Maribou State', 'followers': 443448, 'popularity': 69, 'monthly_listeners': 4550097},
+    {'name': 'MARINA', 'followers': 5919125, 'popularity': 74, 'monthly_listeners': 10931048},
+    {'name': 'Mark Ambor', 'followers': 603314, 'popularity': 72, 'monthly_listeners': 13182717},
+    {'name': 'Marlon Hoffstadt', 'followers': 145019, 'popularity': 64, 'monthly_listeners': 4129162},
+    {'name': 'Martin Garrix', 'followers': 15174488, 'popularity': 77, 'monthly_listeners': 21907142},
+    {'name': 'Mary Droppinz', 'followers': 12211, 'popularity': 32, 'monthly_listeners': 61563},
+    {'name': 'Matt Champion', 'followers': 174292, 'popularity': 50, 'monthly_listeners': 854164},
+    {'name': 'Mau P', 'followers': 150925, 'popularity': 65, 'monthly_listeners': 5027702},
+    {'name': 'Max McNown', 'followers': 445976, 'popularity': 72, 'monthly_listeners': 7196544},
+    {'name': 'Midnight Generation', 'followers': 82804, 'popularity': 53, 'monthly_listeners': 476469},
+    {'name': 'Mk.gee', 'followers': 352280, 'popularity': 64, 'monthly_listeners': 1848754},
+    {'name': 'Montell Fish', 'followers': 1927002, 'popularity': 75, 'monthly_listeners': 10523659},
+    {'name': 'Murda Beatz', 'followers': 167248, 'popularity': 58, 'monthly_listeners': 2540621},
+    {'name': 'Naomi Scott', 'followers': 382737, 'popularity': 62, 'monthly_listeners': 3658953},
+    {'name': 'NewDad', 'followers': 130850, 'popularity': 51, 'monthly_listeners': 495951},
+    {'name': 'nimino', 'followers': 114263, 'popularity': 66, 'monthly_listeners': 5438550},
+    {'name': 'Nourished by Time', 'followers': 29870, 'popularity': 44, 'monthly_listeners': 242880},
+    {'name': 'Ocean Alley', 'followers': 621001, 'popularity': 64, 'monthly_listeners': 2957507},
+    {'name': 'Old Mervs', 'followers': 37790, 'popularity': 53, 'monthly_listeners': 390737},
+    {'name': 'Ole 60', 'followers': 272454, 'popularity': 64, 'monthly_listeners': 2271426},
+    {'name': 'Olivia Rodrigo', 'followers': 44590578, 'popularity': 87, 'monthly_listeners': 45625465},
+    {'name': 'Orion Sun', 'followers': 394025, 'popularity': 63, 'monthly_listeners': 2588644},
+    {'name': 'Orla Gartland', 'followers': 273272, 'popularity': 52, 'monthly_listeners': 777594},
+    {'name': 'Otoboke Beaver', 'followers': 153409, 'popularity': 37, 'monthly_listeners': 71422},
+    {'name': 'Overmono', 'followers': 165858, 'popularity': 55, 'monthly_listeners': 1308244},
+    {'name': 'People R Ugly', 'followers': 41536, 'popularity': 46, 'monthly_listeners': 280278},
+    {'name': 'Prospa', 'followers': 55959, 'popularity': 53, 'monthly_listeners': 1096801},
+    {'name': 'Rachel Grae', 'followers': 212937, 'popularity': 56, 'monthly_listeners': 1178239},
+    {'name': 'RaeCola', 'followers': 1537, 'popularity': 12, 'monthly_listeners': 4485},
+    {'name': 'Ratboys', 'followers': 51759, 'popularity': 40, 'monthly_listeners': 123370},
+    {'name': 'Ravyn Lenae', 'followers': 533645, 'popularity': 71, 'monthly_listeners': 7647105},
+    {'name': 'Rebecca Black', 'followers': 166070, 'popularity': 58, 'monthly_listeners': 1038177},
+    {'name': 'Remi Wolf', 'followers': 591103, 'popularity': 66, 'monthly_listeners': 4238708},
+    {'name': 'ROLE MODEL', 'followers': 591246, 'popularity': 74, 'monthly_listeners': 5512373},
+    {'name': 'Royel Otis', 'followers': 423478, 'popularity': 71, 'monthly_listeners': 7274375},
+    {'name': 'RÜFÜS DU SOL', 'followers': 2019818, 'popularity': 75, 'monthly_listeners': 9464147},
+    {'name': 'Sabrina Carpenter', 'followers': 20661993, 'popularity': 92, 'monthly_listeners': 67217251},
+    {'name': 'salute', 'followers': 85783, 'popularity': 53, 'monthly_listeners': 930567},
+    {'name': 'Sam Austins', 'followers': 44230, 'popularity': 60, 'monthly_listeners': 2793085},
+    {'name': 'Sammy Virji', 'followers': 167669, 'popularity': 65, 'monthly_listeners': 3657129},
+    {'name': 'Sierra Ferrell', 'followers': 356507, 'popularity': 63, 'monthly_listeners': 2404603},
+    {'name': 'Silly Goose', 'followers': 29271, 'popularity': 33, 'monthly_listeners': 46648},
+    {'name': 'Sofia Camara', 'followers': 57987, 'popularity': 57, 'monthly_listeners': 1583851},
+    {'name': 'STAR BANDZ', 'followers': 119573, 'popularity': 51, 'monthly_listeners': 652868},
+    {'name': 'Still Woozy', 'followers': 1069375, 'popularity': 66, 'monthly_listeners': 3856912},
+    {'name': 'Sunami', 'followers': 150214, 'popularity': 50, 'monthly_listeners': 263948},
+    {'name': 'The Symposium', 'followers': 95580, 'popularity': 47, 'monthly_listeners': 249247},
+    {'name': 'T-Pain', 'followers': 5371143, 'popularity': 79, 'monthly_listeners': 19239892},
+    {'name': 'Tanner Adell', 'followers': 116327, 'popularity': 54, 'monthly_listeners': 1179201},
+    {'name': 'Tape B', 'followers': 72640, 'popularity': 53, 'monthly_listeners': 683413},
+    {'name': 'TESSLA', 'followers': 358, 'popularity': 5, 'monthly_listeners': 1024},
+    {'name': 'Torren Foot', 'followers': 25436, 'popularity': 52, 'monthly_listeners': 1074047},
+    {'name': 'Airwolf Paradise', 'followers': 13569, 'popularity': 38, 'monthly_listeners': 191620},
+    {'name': 'TWICE', 'followers': 21596613, 'popularity': 79, 'monthly_listeners': 10004161},
+    {'name': 'Two Friends', 'followers': 237268, 'popularity': 56, 'monthly_listeners': 1239912},
+    {'name': 'Tyler, The Creator', 'followers': 20967402, 'popularity': 91, 'monthly_listeners': 47578912},
+    {'name': 'Vincent Lima', 'followers': 60765, 'popularity': 54, 'monthly_listeners': 548338},
+    {'name': 'Viperactive', 'followers': 13752, 'popularity': 41, 'monthly_listeners': 197360},
+    {'name': 'Wallows', 'followers': 2923737, 'popularity': 72, 'monthly_listeners': 8842850},
+    {'name': 'Wasia Project', 'followers': 336047, 'popularity': 56, 'monthly_listeners': 1248435},
+    {'name': 'wave to earth', 'followers': 4174980, 'popularity': 76, 'monthly_listeners': 8496682},
+    {'name': 'Wild Rivers', 'followers': 278500, 'popularity': 65, 'monthly_listeners': 3069026},
+    {'name': 'Willow Avalon', 'followers': 159023, 'popularity': 52, 'monthly_listeners': 633317},
+    {'name': 'Winnetka Bowling League', 'followers': 78947, 'popularity': 46, 'monthly_listeners': 381235},
+    {'name': 'Winyah', 'followers': 4015, 'popularity': 35, 'monthly_listeners': 63927},
+    {'name': 'Wunderhorse', 'followers': 155894, 'popularity': 63, 'monthly_listeners': 1367962},
+    {'name': 'Wyatt Flores', 'followers': 373313, 'popularity': 67, 'monthly_listeners': 3209598},
+    {'name': 'xaviersobased', 'followers': 128954, 'popularity': 61, 'monthly_listeners': 497291},
+    {'name': 'Xdinary Heroes', 'followers': 1164828, 'popularity': 60, 'monthly_listeners': 701271},
+    {'name': 'Yana', 'followers': 24405, 'popularity': 50, 'monthly_listeners': 393556},
+    {'name': 'Young Miko', 'followers': 3704897, 'popularity': 77, 'monthly_listeners': 19688691},
+    {'name': 'Zinadelphia', 'followers': 46342, 'popularity': 44, 'monthly_listeners': 252632},
+    {'name': 'Zoe Ko', 'followers': 27366, 'popularity': 42, 'monthly_listeners': 177609}
 ]
 
 test_content = """
@@ -640,37 +546,46 @@ def dates_to_act(act, day_info, genre_list, element = 0):
     return stage, datInfoAct["start_time"], datInfoAct["end_time"], timesTheyPlay
     
 
-def slow_sort(popList):
-    sortedFully = False
-    pop_priority = 0.4  # Sorts the acts combining the followers and popularity and weighting the popularity by this amount.
+def popularity_sort(popList):
+    if not popList:
+        return popList
+    use_monthly_listens = "monthly_listeners" in popList[0]
+    if use_monthly_listens:
+        pop_weights = [0.4, 0.3, 0.3]  # populary, follower, monthly listens 
+    else:
+        pop_weights = [0.4, 0.6, 0]  # populary, follower, N/A
     maxPop = 0
     maxFol = 0
+    maxMonLis = 0
     for pop in popList:
         maxPop = max(maxPop, pop['popularity'])
         maxFol = max(maxFol, pop['followers'])
-    if maxPop == 0:
-        return popList
-    fol_pop_ratio = int((pop_priority / (1 - pop_priority)) * (maxFol / maxPop))
-    print(f"Ratio for prioritizing followers to popularity: {fol_pop_ratio} followers for 1 pop")
-    while not sortedFully:
-        sortedFully = True
-        for i, _ in enumerate(popList):
-            if i + 1 == len(popList):
-                break
-            scoreCurr = (pop_priority * (popList[i]['popularity']/maxPop)) + ((1 - pop_priority) * (popList[i]['followers']/maxFol))
-            scoreNext = (pop_priority * (popList[i+1]['popularity']/maxPop)) + ((1 - pop_priority) * (popList[i+1]['followers']/maxFol))
-            if scoreNext > scoreCurr:
-                sortedFully = False
-                popList[i+1], popList[i] = popList[i], popList[i+1]
+        if use_monthly_listens:
+            maxMonLis = max(maxMonLis, pop['monthly_listeners'])
+    for pop in popList:
+        popPercent = pop['popularity']/maxPop
+        folPercent = pop['followers']/maxFol
+        monLisPercent = pop['monthly_listeners']/maxMonLis if use_monthly_listens else 0
+        values = [popPercent, folPercent, monLisPercent]
+        pop["fullPop"] = sum(v * w for v, w in zip(values, pop_weights))
+    popList = sorted(popList, key=lambda x: x["fullPop"], reverse=True)
     return popList
         
 
 def print_md_lst(sorted_listing, genre_list):
-    longestNum = 5
-    longestAct = 27
-    longestPop = 15
-    longestFol = 10
-    longestStg = 15
+    useMonLis = 'monthly_listeners' in sorted_listing[0]
+    numTitle = "Num"
+    actTitle = "Act"
+    popTitle = "Popularity"
+    folTitle = "Followers"
+    monLisTitle = "Monthly Listeners"
+    stgTitle = "Stage"
+    longestNum = len(numTitle) + 2
+    longestAct = len(actTitle) + 2
+    longestPop = len(popTitle) + 2
+    longestFol = len(folTitle) + 2
+    longestStg = len(stgTitle) + 2
+    longestMonLis = len(monLisTitle) + 2
     stageDict = {}
     for item in sorted_listing:
         stage, _, _, _ = dates_to_act(item['name'], day_info, genre_list)
@@ -680,20 +595,25 @@ def print_md_lst(sorted_listing, genre_list):
         longestAct = max(longestAct, len(item['name']))
         longestPop = max(longestPop, len(str(item['popularity'])))
         longestFol = max(longestFol, len(str(item['followers'])))
-        longestStg = max(longestStg, len(stage))
-    numTitle = "Num"
-    actTitle = "Act"
-    popTitle = "Popularity"
-    folTitle = "Followers"
-    stgTitle = "Stage"
-    print(f"| {numTitle: ^{longestNum}} | {actTitle: ^{longestAct}} | {popTitle : ^{longestPop}} | {folTitle : ^{longestFol}} | {stgTitle : ^{longestStg}} |")
-    print(f"| {'-' * longestNum} | {'-' * longestAct} | {'-' * longestPop} | {'-' * longestFol} | {'-' * longestStg} |")
+        if useMonLis:
+            longestMonLis = max(longestMonLis, len(str(item['monthly_listeners'])))
+        longestStg = max(longestStg, len(stage))            
+    if useMonLis:
+        print(f"| {numTitle: ^{longestNum}} | {actTitle: ^{longestAct}} | {popTitle : ^{longestPop}} | {folTitle : ^{longestFol}} | {monLisTitle : ^{longestMonLis}} | {stgTitle : ^{longestStg}} |")
+        print(f"| {'-' * longestNum} | {'-' * longestAct} | {'-' * longestPop} | {'-' * longestFol} | {'-' * longestMonLis} | {'-' * longestStg} |")
+    else:
+        print(f"| {numTitle: ^{longestNum}} | {actTitle: ^{longestAct}} | {popTitle : ^{longestPop}} | {folTitle : ^{longestFol}} | {stgTitle : ^{longestStg}} |")
+        print(f"| {'-' * longestNum} | {'-' * longestAct} | {'-' * longestPop} | {'-' * longestFol} | {'-' * longestStg} |")
     for num, item in enumerate(sorted_listing):
         act = item['name']
         popularity = item['popularity']
         followers = item['followers']
         stage = stageDict[act]
-        print(f"| {num + 1 : ^{longestNum}} | {act : ^{longestAct}} | {popularity : ^{longestPop}} | {followers : ^{longestFol}} | {stage : ^{longestStg}} |")
+        if useMonLis:
+            monthly_listeners = item['monthly_listeners']
+            print(f"| {num + 1 : ^{longestNum}} | {act : ^{longestAct}} | {popularity : ^{longestPop}} | {followers : ^{longestFol}} | {monthly_listeners : ^{longestMonLis}} | {stage : ^{longestStg}} |")
+        else:
+            print(f"| {num + 1 : ^{longestNum}} | {act : ^{longestAct}} | {popularity : ^{longestPop}} | {followers : ^{longestFol}} | {stage : ^{longestStg}} |")
 
 replaceWords = {"RUFUS" : "R;F;S", "BOA" : "B:A", "A" : "a", "D" : "d", "." : "_"}
 
@@ -803,9 +723,9 @@ if __name__ == "__main__":
     else:
         sortKey = lambda x: (x['popularity'], x['followers']) # Sort by Spotify popularity w/ followers being the tie-breaker
         sorted_listing = sorted(listActsPop, key=sortKey, reverse=True)
-        sorted_listing = slow_sort(sorted_listing)
+        sorted_listing = popularity_sort(sorted_listing)
         sorted_listing_missing = sorted(listActsPopMissing, key=sortKey, reverse=True)
-        sorted_listing_missing = slow_sort(sorted_listing_missing)
+        sorted_listing_missing = popularity_sort(sorted_listing_missing)
     
     for i, artist in enumerate(sorted_listing):
         artist['overall'] = i + 1
