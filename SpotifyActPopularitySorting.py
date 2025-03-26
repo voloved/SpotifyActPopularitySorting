@@ -12,7 +12,7 @@ TZ = pytz.timezone('US/Central')  # Clashfinder is in Central time
 
 MAKE_ARR_FILE = 1 # 0 = Don't make the file; 1= Make the file; 2 = Make the file and print it to the console
 PRINT_RANKINGs = 1
-USE_TEST_ARR = 0
+USE_TEST_ARR = 1
 PRINT_SEARCH_RESULTS = 1
 SORT_POP_BY_FOLLOWERS = 0
 GENRE_DEFAULT = "NO_GENRE"
@@ -66,7 +66,7 @@ testPop = [
     {'name': 'Kenny Mason', 'followers': 207819, 'popularity': 59}, {'name': 'Kickflip', 'followers': 180136, 'popularity': 54},
     {'name': 'KNOCK2', 'followers': 137658, 'popularity': 63}, {'name': 'Korn', 'followers': 8789407, 'popularity': 77},
     {'name': 'La Femme', 'followers': 568895, 'popularity': 59}, {'name': 'Laila!', 'followers': 218927, 'popularity': 55},
-    {'name': 'Landon Barker', 'followers': 39846, 'popularity': 42}, {'name': 'Landon Conrath,', 'followers': 0, 'popularity': 0},
+    {'name': 'Landon Barker', 'followers': 39846, 'popularity': 42}, {'name': 'Landon Conrath', 'followers': 0, 'popularity': 0},
     {'name': 'Latin Mafia', 'followers': 1418802, 'popularity': 75}, {'name': 'Layz', 'followers': 29928, 'popularity': 41},
     {'name': 'Lekan', 'followers': 14583, 'popularity': 37}, {'name': 'Levity', 'followers': 90345, 'popularity': 54},
     {'name': 'Luke Combs', 'followers': 12439664, 'popularity': 86}, {'name': 'Magdalena Bay', 'followers': 410014, 'popularity': 68},
@@ -107,6 +107,185 @@ testPop = [
     {'name': 'Xdinary Heroes', 'followers': 1163270, 'popularity': 60}, {'name': 'Yana', 'followers': 24319, 'popularity': 50},
     {'name': 'Young Miko', 'followers': 3703506, 'popularity': 77}, {'name': 'Zinadelphia', 'followers': 46263, 'popularity': 44},
     {'name': 'Zoe KoMARINA', 'followers': 0, 'popularity': 0}
+]
+
+# This is manually created to get the id and monthly listeners of all artists 170 acts took 2 hours.
+# Set manualSpotifyScrape to None to make it to the code will make a best-guess from genreDict in Spotify, rather than use the id info
+# to get the Spotify popularity and follower data.
+manualSpotifyScrape = [
+    {'name' : '2Hollis' , 'id' : '72NhFAGG5Pt91VbheJeEPG', 'monthly_listeners' : 1024674},
+    {'name' : 'A$AP Rocky' , 'id' : '13ubrt8QOOCPljQ2FL1Kca', 'monthly_listeners' : 37586045},
+    {'name' : 'Alemeda' , 'id' : '33Se8kMYeTPkeeM2LnsPF8', 'monthly_listeners' : 170585},
+    {'name' : 'Alex Warren' , 'id' : '0fTSzq9jAh4c36UVb4V7CB', 'monthly_listeners' : 27385019},
+    {'name' : 'ALEXSUCKS' , 'id' : '0zmxCsd8aIJHfNC95gdT2i', 'monthly_listeners' : 384438},
+    {'name' : r"Aliyah's Interlude" , 'id' : '7maQENQfaF8xDdEJp4i545', 'monthly_listeners' : 2335373},
+    {'name' : 'ALLEYCVT' , 'id' : '4JxRK2gxmri7L7OWaxnVD1', 'monthly_listeners' : 474010},
+    {'name' : 'Amaarae' , 'id' : '21UPYSRWFKwtqvSAnFnSvS', 'monthly_listeners' : 5502741},
+    {'name' : 'Artemas' , 'id' : '0PCCGZ0wGLizHt2KZ7hhA2', 'monthly_listeners' : 18388735},
+    {'name' : 'Azzecca' , 'id' : '2k5DY2QDU3kBi5DX7OQlWj', 'monthly_listeners' : 304787},
+    {'name' : r"Barry Can't Swim" , 'id' : '0vTVU0KH0CVzijsoKGsTPl', 'monthly_listeners' : 3036482},
+    {'name' : 'benches' , 'id' : '62U36LEen0wpm8L5q68iVu', 'monthly_listeners' : 278265},
+    {'name' : 'Bilmuri' , 'id' : '5Rc75vGFBWZPgL7EXb4k89', 'monthly_listeners' : 682438},
+    {'name' : 'Black Party' , 'id' : '4C9Tvlt8v7d8R6h98FgdUy', 'monthly_listeners' : 357828},
+    {'name' : 'Bladee' , 'id' : '2xvtxDNInKDV4AvGmjw6d1', 'monthly_listeners' : 1453670},
+    {'name' : 'Bleachers' , 'id' : '2eam0iDomRHGBypaDQLwWI', 'monthly_listeners' : 9041939},
+    {'name' : 'The Blessed Madonna' , 'id' : '4TvhRzxIL1le2PWCeUqxQw', 'monthly_listeners' : 6374173},
+    {'name' : 'BLK Odyssy' , 'id' : '062tCT8GVioC9EMiI9jeOV', 'monthly_listeners' : 841241},
+    {'name' : 'Bo Staloch' , 'id' : '2EtiCherSxAKu7mnbU8Poh', 'monthly_listeners' : 382491},
+    {'name' : 'Bossman Dlow' , 'id' : '23xFbA9rYgRX8mreqysWPc', 'monthly_listeners' : 5943720},
+    {'name' : 'Boynextdoor' , 'id' : '4hnHLgMSOiqERWBL4jINP1', 'monthly_listeners' : 2790783},
+    {'name' : 'BUNT.' , 'id' : '2CpLIMBoE2ZzyY3ZBCRZ7j', 'monthly_listeners' : 7793318},
+    {'name' : 'Bôa' , 'id' : '5jTtGLk1mGFMY5lQOvJYUj', 'monthly_listeners' : 10409793},
+    {'name' : 'Ca7riel y Paco Amoroso' , 'id' : '6I8TDGeUmmLom8auKPzMdX', 'monthly_listeners' : 3057145},
+    {'name' : 'Cage the Elephant' , 'id' : '26T3LtbuGT1Fu9m0eRq5X3', 'monthly_listeners' : 15392470},
+    {'name' : 'Carole Ades' , 'id' : '3WuoKYR1zeLGxR29c53Vdr', 'monthly_listeners' : 143074},
+    {'name' : 'Caroline Kingsbury' , 'id' : '0uE0bzpIfuZ9XVduu0byzg', 'monthly_listeners' : 557598},
+    {'name' : 'Carter Vail' , 'id' : '4Bu9DnBZ12oX7MiiaJy9hK', 'monthly_listeners' : 302796},
+    {'name' : 'Cassandra Coleman' , 'id' : '0', 'monthly_listeners' : 0},
+    {'name' : 'Charlotte Lawrence' , 'id' : '7LImGq5KnzQobZciDJpeJb', 'monthly_listeners' : 2165946},
+    {'name' : 'Chase & Status' , 'id' : '3jNkaOXasoc7RsxdchvEVq', 'monthly_listeners' : 6775888},
+    {'name' : 'Chicago Made' , 'id' : '0', 'monthly_listeners' : 0},
+    {'name' : 'Chicago Youth Symphony Orchestra' , 'id' : '38F4eptEGZAvPhZEjWS46W', 'monthly_listeners' : 489},
+    {'name' : 'Clairo' , 'id' : '3l0CmX0FuQjFxr8SK7Vqag', 'monthly_listeners' : 17896660},
+    {'name' : 'Cloonee' , 'id' : '7MdlXmq2HViAJWo9cf30sR', 'monthly_listeners' : 3885163},
+    {'name' : 'Colby Acuff' , 'id' : '2L9DVKDXY3W8uRl5TwLbMC', 'monthly_listeners' : 1177543},
+    {'name' : 'The Criticals' , 'id' : '6ArhcOX0zzUe8GDzLTgBrK', 'monthly_listeners' : 96217},
+    {'name' : 'Damiano David' , 'id' : '7AaGbSgUxJFuZ49VvclNH6', 'monthly_listeners' : 8788979},
+    {'name' : 'Daniel Allan' , 'id' : '5JQ1XqKJ2Art01rF4tu1Ra', 'monthly_listeners' : 708768},
+    {'name' : 'The Dare' , 'id' : '2mqiqsaX4LzFnUP7PmHGAb', 'monthly_listeners' : 1386244},
+    {'name' : 'Del Water Gap' , 'id' : '0xPoVNPnxIIUS1vrxAYV00', 'monthly_listeners' : 2470831},
+    {'name' : 'DJ Heather' , 'id' : '6K3wEom1qiZrmZ6pTNdLcl', 'monthly_listeners' : 1572},
+    {'name' : 'DJO' , 'id' : '5p9HO3XC5P3BLxJs5Mtrhm', 'monthly_listeners' : 21258791},
+    {'name' : 'Doechii' , 'id' : '4E2rKHVDssGJm2SCDOMMJB', 'monthly_listeners' : 57512177},
+    {'name' : 'Dogpark' , 'id' : '2VlmDb05CPERyCZfmZI3x7', 'monthly_listeners' : 179515},
+    {'name' : 'Dom Dolla' , 'id' : '205i7E8fNVfojowcQSfK9m', 'monthly_listeners' : 9098939},
+    {'name' : 'Dominic Fike' , 'id' : '6USv9qhCn6zfxlBQIYJ9qs', 'monthly_listeners' : 23747211},
+    {'name' : 'Dr. Fresch' , 'id' : '1htHgbGwgCWJBfGiQwcRqC', 'monthly_listeners' : 902359},
+    {'name' : 'The Droptines' , 'id' : '5MKl9FP3O6MpQhVx7QRFyc', 'monthly_listeners' : 365662},
+    {'name' : 'Dua Saleh' , 'id' : '2DGBzoOLcKLK3eWxFyugdB', 'monthly_listeners' : 264383},
+    {'name' : 'Durand Bernarr' , 'id' : '2d6ggH1oVt4z2zCuY2u5DW', 'monthly_listeners' : 544556},
+    {'name' : 'Eddie and the Getaway' , 'id' : '7oTkfyZOcKQuCUFnSVLB3j', 'monthly_listeners' : 620176},
+    {'name' : 'Fcukers' , 'id' : '3UtzOHYm3lQALkKzVD4wyO', 'monthly_listeners' : 343054},
+    {'name' : 'Finneas' , 'id' : '37M5pPGs6V1fchFJSgCguX', 'monthly_listeners' : 8050971},
+    {'name' : 'Flipturn' , 'id' : '7FKTg75ADVMZgY3P9ZMRtH', 'monthly_listeners' : 1836377},
+    {'name' : 'Flowerovlove' , 'id' : '1JspXUvEv3D9ddMeLNqYWj', 'monthly_listeners' : 1225680},
+    {'name' : 'Flux Pavilion' , 'id' : '7muzHifhMdnfN1xncRLOqk', 'monthly_listeners' : 1869462},
+    {'name' : 'Foster the People' , 'id' : '7gP3bB2nilZXLfPHJhMdvc', 'monthly_listeners' : 17911723},
+    {'name' : 'Fujii Kaze' , 'id' : '6bDWAcdtVR3WHz2xtiIPUi', 'monthly_listeners' : 7529588},
+    {'name' : 'Gigi Perez' , 'id' : '1iCnM8foFssWlPRLfAbIwo', 'monthly_listeners' : 28271289},
+    {'name' : 'Girl Tones' , 'id' : '1Tq0nryXkwLARcHDMIZbY6', 'monthly_listeners' : 55884},
+    {'name' : 'Glass Beams' , 'id' : '1LTFJvVvRw7ghAyThxYmnF', 'monthly_listeners' : 716436},
+    {'name' : 'Gracie Abrams' , 'id' : '4tuJ0bMpJh08umKkEXKUI5', 'monthly_listeners' : 50068233},
+    {'name' : 'Graham Barham' , 'id' : '3WHWgx8Dh0IqQT1BMDTeE3', 'monthly_listeners' : 2054261},
+    {'name' : 'Gryffin' , 'id' : '2ZRQcIgzPCVaT9XKhXZIzh', 'monthly_listeners' : 7509958},
+    {'name' : 'Half Alive' , 'id' : '7sOR7gk6XUlGnxj3p9F54k', 'monthly_listeners' : 1536433},
+    {'name' : 'Hex Cougar' , 'id' : '0AlNB0yIoyxdKloLmK9AOR', 'monthly_listeners' : 194502},
+    {'name' : 'hey, nothing' , 'id' : '6YWqJQS9TETSb8LgZONUzI', 'monthly_listeners' : 563117},
+    {'name' : 'Ian' , 'id' : '23hzc59PkIUau13dqXx5Ef', 'monthly_listeners' : 5253311},
+    {'name' : 'Isabel LaRosa' , 'id' : '5arKwJZEvT5uKq4o0JfqR4', 'monthly_listeners' : 11365798},
+    {'name' : 'Isaiah Rashad' , 'id' : '6aaMZ3fcfLv4tEbmY7bjRM', 'monthly_listeners' : 5275833},
+    {'name' : 'ISOxo' , 'id' : '4zVCMnjw54nkhGHU4e1Pav', 'monthly_listeners' : 550639},
+    {'name' : 'Jade LeMac' , 'id' : '4JnJjqxsTp8E5rZsyITf63', 'monthly_listeners' : 3920242},
+    {'name' : 'Jane Remover' , 'id' : '2rLGlNI6htigNxx172qxLu', 'monthly_listeners' : 330722},
+    {'name' : 'Jesse Detor' , 'id' : '3HljFuKgpaXNKfIlFZWCEk', 'monthly_listeners' : 42802},
+    {'name' : 'Jev' , 'id' : '6StZbL9v3UpuaMwIoq8fyW', 'monthly_listeners' : 314147},
+    {'name' : 'Jigitz' , 'id' : '7sfn5Z6ItzDkOF9cYzxWPZ', 'monthly_listeners' : 1176625},
+    {'name' : 'Joe P' , 'id' : '3pIwImfumJioKb0zHHP61x', 'monthly_listeners' : 484086},
+    {'name' : 'Joey Valence & Brae' , 'id' : '1q4618qKswelCGLoanFKQh', 'monthly_listeners' : 3816483},
+    {'name' : 'JPEGMafia' , 'id' : '6yJ6QQ3Y5l0s0tn7b0arrO', 'monthly_listeners' : 2027101},
+    {'name' : 'Julie' , 'id' : '3VNzWLePg9jTvQ2ximYOzW', 'monthly_listeners' : 634972},
+    {'name' : 'Junior Varsity' , 'id' : '27tsCOGutD6wmFnv4eKWMp', 'monthly_listeners' : 459160},
+    {'name' : 'Kaicrewsade' , 'id' : '4WgDm2J3jztBZSc1S0lMsx', 'monthly_listeners' : 41081},
+    {'name' : 'KATSEYE' , 'id' : '3c0gDdb9lhnHGFtP4prQpn', 'monthly_listeners' : 6727964},
+    {'name' : 'Kenny Mason' , 'id' : '4mwdnO2jZrMmMVrjcHsZBv', 'monthly_listeners' : 1803809},
+    {'name' : 'Kickflip' , 'id' : '6F4yXjmhQBqo6HVr6K234k', 'monthly_listeners' : 498647},
+    {'name' : 'KNOCK2' , 'id' : '6mmSS7itNWKbapgG2eZbIg', 'monthly_listeners' : 1577219},
+    {'name' : 'Korn' , 'id' : '3RNrq3jvMZxD9ZyoOZbQOD', 'monthly_listeners' : 11752222},
+    {'name' : 'La Femme' , 'id' : '5VTWoYYizcOY3uIKnxeCGI', 'monthly_listeners' : 1411472},
+    {'name' : 'Laila!' , 'id' : '7tHTnyrdTNM152slc8aQ3t', 'monthly_listeners' : 1364309},
+    {'name' : 'Landon Barker' , 'id' : '7tWnepocfeqynsYC75hWoF', 'monthly_listeners' : 101992},
+    {'name' : 'Landon Conrath' , 'id' : '2PJ06l59DomDd440az768u', 'monthly_listeners' : 349597},
+    {'name' : 'Latin Mafia' , 'id' : '6XTGKOV9jceQ6f67lnhpbF', 'monthly_listeners' : 7083863},
+    {'name' : 'Layz' , 'id' : '2ozQcs5XxFaj5fvA02zhwo', 'monthly_listeners' : 145042},
+    {'name' : 'Lekan' , 'id' : '3Z7dkUrTApDgi6npZfoHVv', 'monthly_listeners' : 127967},
+    {'name' : 'Levity' , 'id' : '1PbO7aQiVeKbGp8GYWDL9C', 'monthly_listeners' : 820240},
+    {'name' : 'Luke Combs' , 'id' : '718COspgdWOnwOFpJHRZHS', 'monthly_listeners' : 25036035},
+    {'name' : 'Magdalena Bay' , 'id' : '1oPRcJUkloHaRLYx0olBLJ', 'monthly_listeners' : 3890170},
+    {'name' : 'Mariah the Scientist' , 'id' : '7HO5fOXE4gh3lzZn64tX2E', 'monthly_listeners' : 4209706},
+    {'name' : 'The Marias' , 'id' : '2sSGPbdZJkaSE2AbcGOACx', 'monthly_listeners' : 23793821},
+    {'name' : 'Maribou State' , 'id' : '7zrkALJ9ayRjzysp4QYoEg', 'monthly_listeners' : 4550097},
+    {'name' : 'Mark Ambor' , 'id' : '11p2E654TTU8e0nZWBR4AL', 'monthly_listeners' : 13182717},
+    {'name' : 'Marlon Hoffstadt' , 'id' : '0HHa7ZJZxUQlg5l2mB0N0f', 'monthly_listeners' : 4129162},
+    {'name' : 'Martin Garrix' , 'id' : '60d24wfXkVzDSfLS6hyCjZ', 'monthly_listeners' : 21907142},
+    {'name' : 'Mary Droppinz' , 'id' : '4tPVnr7VB15UA9TRsie3cS', 'monthly_listeners' : 61563},
+    {'name' : 'Matt Champion' , 'id' : '29Oq9Nv8zLgu3IvX1tIpbm', 'monthly_listeners' : 854164},
+    {'name' : 'Mau P' , 'id' : '0w1sbtZVQoK6GzV4A4OkCv', 'monthly_listeners' : 5027702},
+    {'name' : 'Max McNown' , 'id' : '340PS4ZcZ4UCBgyrXzEjcp', 'monthly_listeners' : 7196544},
+    {'name' : 'Midnight Generation' , 'id' : '4CKIGHCZRzNoiNDSaW5eaq', 'monthly_listeners' : 476469},
+    {'name' : 'Mk.gee' , 'id' : '7tr9pbgNEKtG0GQTKe08Tz', 'monthly_listeners' : 1848754},
+    {'name' : 'Montell Fish' , 'id' : '5nvWOyAkfNgVLKESq4fOj2', 'monthly_listeners' : 10523659},
+    {'name' : 'Murda Beatz' , 'id' : '3CbYyyd8wH3RT6t0jwpdzC', 'monthly_listeners' : 2540621},
+    {'name' : 'Naomi Scott' , 'id' : '2Zi3RrdQqk63Xj0914STkS', 'monthly_listeners' : 3658953},
+    {'name' : 'New Dad' , 'id' : '1yz8XixOiIJJ9IxjbnfYV6', 'monthly_listeners' : 495951},
+    {'name' : 'Nimino' , 'id' : '5x0R3zoC09GMiRJomoexLV', 'monthly_listeners' : 5438550},
+    {'name' : 'Nourished By Time' , 'id' : '7zNkqI6qRr0OJ4XO1Pw29g', 'monthly_listeners' : 242880},
+    {'name' : 'Ocean Alley' , 'id' : '18lpwfiys4GtdHWNUu9qQr', 'monthly_listeners' : 2957507},
+    {'name' : 'Old Mervs' , 'id' : '3N8YzKqrEQonvd5RLQ4iYg', 'monthly_listeners' : 390737},
+    {'name' : 'Ole 60' , 'id' : '3iXeAZ8862AyoZ5ZGg800O', 'monthly_listeners' : 2271426},
+    {'name' : 'Olivia Rodrigo ' , 'id' : '1McMsnEElThX1knmY4oliG', 'monthly_listeners' : 45625465},
+    {'name' : 'Orion Sun' , 'id' : '2efrqekWSHlvhATD50AG3m', 'monthly_listeners' : 2588644},
+    {'name' : 'Orla Gartland' , 'id' : '3ajf12ub55b51qcS94d9Co', 'monthly_listeners' : 777594},
+    {'name' : 'Otoboke Beaver' , 'id' : '0HutkALC7kq2L8b9bnZUkq', 'monthly_listeners' : 71422},
+    {'name' : 'Overmono' , 'id' : '01PnN11ovfen6xUOHfNpn3', 'monthly_listeners' : 1308244},
+    {'name' : 'People R Ugly' , 'id' : '1kXY7pco0sC6GEgJW9xxyI', 'monthly_listeners' : 280278},
+    {'name' : 'Prospa' , 'id' : '6HabM2PUM519iIxervGWSb', 'monthly_listeners' : 1096801},
+    {'name' : 'Rachel Grae' , 'id' : '0ekCwZGQUkAISV1h48jlHn', 'monthly_listeners' : 1178239},
+    {'name' : 'Raecola' , 'id' : '4ZLYabLbKeMkfAsFNESfpj', 'monthly_listeners' : 4485},
+    {'name' : 'Ratboys' , 'id' : '1SoBNpuC0N4nvaQFENS0qf', 'monthly_listeners' : 123370},
+    {'name' : 'Ravyn Lenae' , 'id' : '5RTLRtXjbXI2lSXc6jxlAz', 'monthly_listeners' : 7647105},
+    {'name' : 'Rebecca Black' , 'id' : '3Vl9fyKMIdLMswk8ai3mm9', 'monthly_listeners' : 1038177},
+    {'name' : 'Remi Wolf' , 'id' : '0NB5HROxc8dDBXpkIi1v3d', 'monthly_listeners' : 4238708},
+    {'name' : 'Role Model' , 'id' : '1dy5WNgIKQU6ezkpZs4y8z', 'monthly_listeners' : 5512373},
+    {'name' : 'Royel Otis' , 'id' : '5b5bt4mZQpJMoCRbiQ7diH', 'monthly_listeners' : 7274375},
+    {'name' : 'RÜFÜS DU SOL' , 'id' : '5Pb27ujIyYb33zBqVysBkj', 'monthly_listeners' : 9464147},
+    {'name' : 'Sabrina Carpenter' , 'id' : '74KM79TiuVKeVCqs8QtB0B', 'monthly_listeners' : 67217251},
+    {'name' : 'Salute' , 'id' : '1np8xozf7ATJZDi9JX8Dx5', 'monthly_listeners' : 930567},
+    {'name' : 'Sam Austins' , 'id' : '0zmnfFQX8LWVVZyRPHRx1V', 'monthly_listeners' : 2793085},
+    {'name' : 'Sammy Virji' , 'id' : '1GuqTQbuixFHD6eBkFwVcb', 'monthly_listeners' : 3657129},
+    {'name' : 'Sierra Ferrell' , 'id' : '3oVcF3VdpMuvMvLLyHPT4t', 'monthly_listeners' : 2404603},
+    {'name' : 'Silly Goose' , 'id' : '0GicbfMtwhn3Ch0PdwkADQ', 'monthly_listeners' : 46648},
+    {'name' : 'Sofia Camara' , 'id' : '5bdLfpk3TpFVwrlHWmPL55', 'monthly_listeners' : 1583851},
+    {'name' : 'Star Bandz' , 'id' : '5qhDQveADDnjIZQ85AtgDM', 'monthly_listeners' : 652868},
+    {'name' : 'Still Woozy' , 'id' : '4iMO20EPodreIaEl8qW66y', 'monthly_listeners' : 3856912},
+    {'name' : 'Sunami' , 'id' : '1pBeRGeBHNPLy95LswDViS', 'monthly_listeners' : 263948},
+    {'name' : 'The Symposium' , 'id' : '2FQgnKHydnhSnRS17BSy28', 'monthly_listeners' : 249247},
+    {'name' : 'T-Pain' , 'id' : '3aQeKQSyrW4qWr35idm0cy', 'monthly_listeners' : 19239892},
+    {'name' : 'Tanner Adell' , 'id' : '5xKVALj2MSqOHmQhburCM8', 'monthly_listeners' : 1179201},
+    {'name' : 'Tape B' , 'id' : '59tlsKpLWoLTxjNNS2wdPi', 'monthly_listeners' : 683413},
+    {'name' : 'Tessla' , 'id' : '3bIr4g7fZxrqbUbAEqFsCS', 'monthly_listeners' : 1024},
+    {'name' : 'Torren Foot' , 'id' : '7lQOxDl96wmNoqGoW4kgv4', 'monthly_listeners' : 1074047},
+    {'name' : 'Airwolf Paradise' , 'id' : '0c3I7EPZUCCG7khbUwQDjl', 'monthly_listeners' : 191620},
+    {'name' : 'TWICE' , 'id' : '7n2Ycct7Beij7Dj7meI4X0', 'monthly_listeners' : 10004161},
+    {'name' : 'Two Friends' , 'id' : '44Ewva5aHOX00EwaX2D2mh', 'monthly_listeners' : 1239912},
+    {'name' : 'Tyler, the Creator' , 'id' : '4V8LLVI7PbaPR0K2TGSxFF', 'monthly_listeners' : 47578912},
+    {'name' : 'Vincent Lima' , 'id' : '7AB7bdCR5saJ0b9C4RuceX', 'monthly_listeners' : 548338},
+    {'name' : 'Viperactive' , 'id' : '7HeSEuZA4D7EtdygBjCbi9', 'monthly_listeners' : 197360},
+    {'name' : 'Wallows' , 'id' : '0NIPkIjTV8mB795yEIiPYL', 'monthly_listeners' : 8842850},
+    {'name' : 'Wasia Project' , 'id' : '7poQNrOwZoUcoqihg4Xex0', 'monthly_listeners' : 1248435},
+    {'name' : 'Wave to Earth' , 'id' : '5069JTmv5ZDyPeZaCCXiCg', 'monthly_listeners' : 8496682},
+    {'name' : 'Wild Rivers' , 'id' : '59sBwR0jPSTrbMtuTkRPN5', 'monthly_listeners' : 3069026},
+    {'name' : 'Willow Avalon' , 'id' : '6EEkobfnenJF603WO8nUrR', 'monthly_listeners' : 633317},
+    {'name' : 'Winnetka Bowling League' , 'id' : '4ug3P1K8BaCdJXROrqHqhu', 'monthly_listeners' : 381235},
+    {'name' : 'Winyah' , 'id' : '4iyP4VOGOLzbt2Vxcyu6zG', 'monthly_listeners' : 63927},
+    {'name' : 'Wunderhorse' , 'id' : '41pd7r1XBRsvdxY3vHEgib', 'monthly_listeners' : 1367962},
+    {'name' : 'Wyatt Flores' , 'id' : '46lEQmDJLJeyltECJYJv1Y', 'monthly_listeners' : 3209598},
+    {'name' : 'Xaviersobased' , 'id' : '2oM7LMPFu882oC6jSwEqjd', 'monthly_listeners' : 497291},
+    {'name' : 'Xdinary Heroes' , 'id' : '1khChLj7REGqjM043PlYyn', 'monthly_listeners' : 701271},
+    {'name' : 'Yana' , 'id' : '6bR96LMvgvYgDlumR7JwPX', 'monthly_listeners' : 393556},
+    {'name' : 'Young Miko' , 'id' : '3qsKSpcV3ncke3hw52JSMB', 'monthly_listeners' : 19688691},
+    {'name' : 'Zinadelphia' , 'id' : '2bTnGGWvuVQsMVyg31rmum', 'monthly_listeners' : 252632},
+    {'name' : 'Zoe Ko' , 'id' : '493xhO4GiL1eOhWUBt8CzZ', 'monthly_listeners' : 177609},
+    {'name' : 'MARINA' , 'id' : '6CwfuxIqcltXDGjfZsMd9A', 'monthly_listeners' : 10931048}
 ]
 
 test_content = """
@@ -186,10 +365,11 @@ id-newdad-1 " data-id="newdad-1" data-start-time="1754168400000" data-end-time="
 """
 
 genre_source =  "https://docs.google.com/document/d/1aEJK7fxm-8BUmWOp24QD2GEpIR2YVU3pmbc23-I2vgc/edit?tab=t.0"
-dicto = { # POP
+genreDict = {
+    # POP
     "POP": [
         "Sabrina Carpenter", "The Dare", "KATSEYE", "Charlotte Lawrence",
-        "Isabel LaRosa", "Naomi Scott", "Jade LeMac", "Zoe Ko"
+        "Isabel LaRosa", "Naomi Scott", "Jade LeMac", "Zoe Ko",
         "MARINA", "Artemas", "Nourished By Time", "Caroline Kingsbury",
         "Olivia Rodrigo", "Damiano David", "Remi Wolf", "Magdalena Bay", 
         "Sam Austins", "Wasia Project", "Vincent Lima", "Bo Staloch"],
@@ -198,7 +378,7 @@ dicto = { # POP
         "Role Model", "Finneas", "Royel Otis", "Flipturn", "Half Alive",
         "Del Water Gap", "Alemeda", "New Dad", "Dogpark", "Joe P",
         "Winnetka Bowling League", "Carole Ades", "Carter Vail",
-        "Landon Conrath,", "RÜFÜS DU SOL"],
+        "Landon Conrath", "RÜFÜS DU SOL"],
     "DREAM_POP": [
         "Gracie Abrams", "Clairo", "The Marias", "Mk.gee", "Still Woozy",
         "Wave to Earth", "Flowerovlove", "Yana", "Julie", "Alex Warren", 
@@ -313,7 +493,12 @@ def get_artist_followers_popularity(artist_name, client_id, client_secret):
     popularity = artist_info['popularity']
     return followers, popularity, True
 
-def strip_word(text, words_to_remove):
+def strip_word(text, words_to_remove, startsWithOnly=False):
+    if startsWithOnly:
+        for word in words_to_remove:
+            if text.lower().startswith(f"{word.lower()} "):
+                return text[len(word)+1:]
+        return text
     words = text.split()
     stripped_words = [word for word in words if word.lower() not in map(str.lower, words_to_remove)]
     stripped_text = ' '.join(stripped_words)
@@ -333,8 +518,8 @@ def rank_artists_by_popularity(artists):
     return artist_ranks
 
 def findGenre(act):
-    for key in dicto:
-        for i in dicto[key]:
+    for key in genreDict:
+        for i in genreDict[key]:
             if i.upper() == act.upper():
                 return key
     return "GENRE_COUNT"
@@ -489,6 +674,8 @@ def print_md_lst(sorted_listing, genre_list):
     stageDict = {}
     for item in sorted_listing:
         stage, _, _, _ = dates_to_act(item['name'], day_info, genre_list)
+        if stage is False:
+            continue
         stageDict[item['name']] = stage
         longestAct = max(longestAct, len(item['name']))
         longestPop = max(longestPop, len(str(item['popularity'])))
@@ -508,25 +695,16 @@ def print_md_lst(sorted_listing, genre_list):
         stage = stageDict[act]
         print(f"| {num + 1 : ^{longestNum}} | {act : ^{longestAct}} | {popularity : ^{longestPop}} | {followers : ^{longestFol}} | {stage : ^{longestStg}} |")
 
+replaceWords = {"RUFUS" : "R;F;S", "BOA" : "B:A", "A" : "a", "D" : "d", "." : "_"}
 
 def get_name_to_display(act, i=0):
+    maxDisplayLen = 21
     actToDisp = unidecode(act)
-    actToDisp = strip_word(actToDisp,["The"])
-    actToDisp = f"{actToDisp.upper()[:6]: <6}"
-    if actToDisp == "BEN BO":
-        actToDisp = "BEN B:"  # Sensor code used : as an umlout
-    elif act == "Yoga":
-        actToDisp = f" YOGA{i+1}"
-    elif act == "Pretty Lights":
-        actToDisp = "PRETYL"
-    elif act == "Pretty Pink":
-        actToDisp = "PRETYP"
-    elif act == "TBA":
-        actToDisp = " TBA  "
-    elif act == "it's murph":
-        actToDisp = "MURPH"
-    elif act == "Exclusive: 6 in the Forest":
-        actToDisp = "6,nFor"
+    actToDisp = strip_word(actToDisp,["The"], True)
+    actToDisp = actToDisp.upper()
+    for was, want in replaceWords.items():
+        actToDisp = actToDisp.replace(was, want)
+    actToDisp = f"{actToDisp[:maxDisplayLen]: <6}"  # <6 makes it so text that won't fill the whole watch screen will be filled with spaces
     return actToDisp
 
 def writeAndPrint(file, text):
@@ -549,6 +727,7 @@ def print_array_for_watch(listActs, sorted_listing, day_info, filename, genre_li
                 stage, start, end, timesPerformed = dates_to_act(act, day_info, genre_list, element=i)
                 if stage == STAGE_DEFAULT:
                     artistDateNotFound.append(act)
+                    continue
                 actToDisp = get_name_to_display(act, i)
                 listActsPrint.append({'dispAct': actToDisp, 'act': act, 'start':start, 'end':end, 'stage':stage})
                 totalActs += 1
@@ -586,8 +765,8 @@ if __name__ == "__main__":
     day_info = {key.split(" (")[0]: value for key, value in day_info.items()}
         
     listActs = []
-    for key in dicto:
-        for i in dicto[key]:
+    for key in genreDict:
+        for i in genreDict[key]:
             listActs.append(i)
     listActs = sorted(listActs, key=lambda x: x.lower().replace("the ",""))
     in_genre_list = []
