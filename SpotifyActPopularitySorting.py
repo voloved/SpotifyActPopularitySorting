@@ -44,14 +44,16 @@ testPop = [
     {'name': 'BOYNEXTDOOR', 'followers': 1320753, 'popularity': 71, 'monthly_listeners': 2790783},
     {'name': 'BUNT.', 'followers': 225584, 'popularity': 69, 'monthly_listeners': 7793318},
     {'name': 'bôa', 'followers': 1055589, 'popularity': 71, 'monthly_listeners': 10409793},
-    {'name': 'CA7RIEL & Paco Amoroso', 'followers': 306462, 'popularity': 71, 'monthly_listeners': 3057145},
+    {'name': 'Ca7riel y Paco Amoroso', 'followers': 306462, 'popularity': 71, 'monthly_listeners': 3057145},
     {'name': 'Cage The Elephant', 'followers': 4082705, 'popularity': 75, 'monthly_listeners': 15392470},
     {'name': 'Carol Ades', 'followers': 26275, 'popularity': 41, 'monthly_listeners': 143074},
     {'name': 'Caroline Kingsbury', 'followers': 20282, 'popularity': 46, 'monthly_listeners': 557598},
     {'name': 'Carter Vail', 'followers': 109611, 'popularity': 48, 'monthly_listeners': 302796},
+    {'name': 'Cassandra Coleman', 'followers': 0, 'popularity': 0, 'monthly_listeners': 0},
     {'name': 'Charlotte Lawrence', 'followers': 1180039, 'popularity': 57, 'monthly_listeners': 2165946},
     {'name': 'Chase & Status', 'followers': 1127270, 'popularity': 71, 'monthly_listeners': 6775888},
     {'name': 'Chicago Youth Symphony Orchestra', 'followers': 133, 'popularity': 3, 'monthly_listeners': 489},
+    {'name': 'Chicago Made', 'followers': 0, 'popularity': 0, 'monthly_listeners': 0},
     {'name': 'Clairo', 'followers': 5892342, 'popularity': 81, 'monthly_listeners': 17896660},
     {'name': 'Cloonee', 'followers': 191831, 'popularity': 63, 'monthly_listeners': 3885163},
     {'name': 'Colby Acuff', 'followers': 131554, 'popularity': 55, 'monthly_listeners': 1177543},
@@ -84,7 +86,7 @@ testPop = [
     {'name': 'Gracie Abrams', 'followers': 5028594, 'popularity': 89, 'monthly_listeners': 50068233},
     {'name': 'Graham Barham', 'followers': 87074, 'popularity': 63, 'monthly_listeners': 2054261},
     {'name': 'Gryffin', 'followers': 984070, 'popularity': 69, 'monthly_listeners': 7509958},
-    {'name': 'half•alive', 'followers': 722802, 'popularity': 60, 'monthly_listeners': 1536433},
+    {'name': 'half alive', 'followers': 722802, 'popularity': 60, 'monthly_listeners': 1536433},
     {'name': 'Hex Cougar', 'followers': 33323, 'popularity': 41, 'monthly_listeners': 194502},
     {'name': 'hey, nothing', 'followers': 147696, 'popularity': 54, 'monthly_listeners': 563117},
     {'name': 'ian', 'followers': 475246, 'popularity': 71, 'monthly_listeners': 5253311},
@@ -118,7 +120,7 @@ testPop = [
     {'name': 'Luke Combs', 'followers': 12449273, 'popularity': 86, 'monthly_listeners': 25036035},
     {'name': 'Magdalena Bay', 'followers': 411214, 'popularity': 68, 'monthly_listeners': 3890170},
     {'name': 'Mariah the Scientist', 'followers': 755789, 'popularity': 69, 'monthly_listeners': 4209706},
-    {'name': 'The Marías', 'followers': 2356420, 'popularity': 82, 'monthly_listeners': 23793821},
+    {'name': 'The Marias', 'followers': 2356420, 'popularity': 82, 'monthly_listeners': 23793821},
     {'name': 'Maribou State', 'followers': 443448, 'popularity': 69, 'monthly_listeners': 4550097},
     {'name': 'MARINA', 'followers': 5919125, 'popularity': 74, 'monthly_listeners': 10931048},
     {'name': 'Mark Ambor', 'followers': 603314, 'popularity': 72, 'monthly_listeners': 13182717},
@@ -170,6 +172,7 @@ testPop = [
     {'name': 'Tanner Adell', 'followers': 116327, 'popularity': 54, 'monthly_listeners': 1179201},
     {'name': 'Tape B', 'followers': 72640, 'popularity': 53, 'monthly_listeners': 683413},
     {'name': 'TESSLA', 'followers': 358, 'popularity': 5, 'monthly_listeners': 1024},
+    {'name': 'Torren Foot B2B Airwolf Paradise', 'followers': 23415, 'popularity': 54, 'monthly_listeners': 759400},
     {'name': 'Torren Foot', 'followers': 25436, 'popularity': 52, 'monthly_listeners': 1074047},
     {'name': 'Airwolf Paradise', 'followers': 13569, 'popularity': 38, 'monthly_listeners': 191620},
     {'name': 'TWICE', 'followers': 21596613, 'popularity': 79, 'monthly_listeners': 10004161},
@@ -282,8 +285,8 @@ genreDict = {
     "INDIE": [
         "Dominic Fike", "Bleachers", "Wallows", "Foster the People",
         "Role Model", "Finneas", "Royel Otis", "Flipturn", "Half Alive",
-        "Del Water Gap", "Alemeda", "New Dad", "Dogpark", "Joe P",
-        "Winnetka Bowling League", "Carole Ades", "Carter Vail",
+        "Del Water Gap", "Alemeda", "NewDad", "Dogpark", "Joe P",
+        "Winnetka Bowling League", "Carol Ades", "Carter Vail",
         "Landon Conrath", "RÜFÜS DU SOL"],
     "DREAM_POP": [
         "Gracie Abrams", "Clairo", "The Marias", "Mk.gee", "Still Woozy",
@@ -307,7 +310,7 @@ genreDict = {
               "Barry Can't Swim", "Prospa", "Azzecca", "DJ Heather",
               "Tessla", "Aliyah's Interlude", "BUNT.", "Salute",
               "Nimino", "Jigitz", "Daniel Allan", "Jev", "Dom Dolla",
-              "Mau P", "Cloonee", "Torren Foot , Airwolf Paradise",
+              "Mau P", "Cloonee", "Torren Foot B2B Airwolf Paradise",
               "Raecola"],
     "DUBSTEP": ["ISOxo", "Tape B", "Flux Pavilion", "Levity",
                 "Layz", "ALLEYCVT", "Hex Cougar", "Viperactive"],
@@ -433,8 +436,6 @@ def findGenre(act):
 def get_ranking(artists, name):
     for artist in artists:
         if artist['name'].lower() == name.lower():
-            if artist['popularity'] == 0:
-                return 0
             return artist['overall']
     return 0
 
@@ -554,14 +555,10 @@ def popularity_sort(popList):
         pop_weights = [0.4, 0.3, 0.3]  # populary, follower, monthly listens 
     else:
         pop_weights = [0.4, 0.6, 0]  # populary, follower, N/A
-    maxPop = 0
-    maxFol = 0
-    maxMonLis = 0
-    for pop in popList:
-        maxPop = max(maxPop, pop['popularity'])
-        maxFol = max(maxFol, pop['followers'])
-        if use_monthly_listens:
-            maxMonLis = max(maxMonLis, pop['monthly_listeners'])
+    maxPop = max(artist['popularity'] for artist in popList)
+    maxFol = max(artist['followers'] for artist in popList)
+    if use_monthly_listens:
+        maxMonLis = max(artist['monthly_listeners'] for artist in popList)
     for pop in popList:
         popPercent = pop['popularity']/maxPop
         folPercent = pop['followers']/maxFol
@@ -569,6 +566,8 @@ def popularity_sort(popList):
         values = [popPercent, folPercent, monLisPercent]
         pop["fullPop"] = sum(v * w for v, w in zip(values, pop_weights))
     popList = sorted(popList, key=lambda x: x["fullPop"], reverse=True)
+    for i, artist in enumerate(popList):
+        artist['overall'] = i + 1 
     return popList
         
 
@@ -604,16 +603,17 @@ def print_md_lst(sorted_listing, genre_list):
     else:
         print(f"| {numTitle: ^{longestNum}} | {actTitle: ^{longestAct}} | {popTitle : ^{longestPop}} | {folTitle : ^{longestFol}} | {stgTitle : ^{longestStg}} |")
         print(f"| {'-' * longestNum} | {'-' * longestAct} | {'-' * longestPop} | {'-' * longestFol} | {'-' * longestStg} |")
-    for num, item in enumerate(sorted_listing):
+    for item in sorted_listing:
         act = item['name']
         popularity = item['popularity']
         followers = item['followers']
         stage = stageDict[act]
+        overall = item['overall']
         if useMonLis:
             monthly_listeners = item['monthly_listeners']
-            print(f"| {num + 1 : ^{longestNum}} | {act : ^{longestAct}} | {popularity : ^{longestPop}} | {followers : ^{longestFol}} | {monthly_listeners : ^{longestMonLis}} | {stage : ^{longestStg}} |")
+            print(f"| {overall : ^{longestNum}} | {act : ^{longestAct}} | {popularity : ^{longestPop}} | {followers : ^{longestFol}} | {monthly_listeners : ^{longestMonLis}} | {stage : ^{longestStg}} |")
         else:
-            print(f"| {num + 1 : ^{longestNum}} | {act : ^{longestAct}} | {popularity : ^{longestPop}} | {followers : ^{longestFol}} | {stage : ^{longestStg}} |")
+            print(f"| {overall : ^{longestNum}} | {act : ^{longestAct}} | {popularity : ^{longestPop}} | {followers : ^{longestFol}} | {stage : ^{longestStg}} |")
 
 replaceWords = {"RUFUS" : "R;F;S", "BOA" : "B:A", "A" : "a", "D" : "d", "." : "_"}
 
@@ -726,13 +726,6 @@ if __name__ == "__main__":
         sorted_listing = popularity_sort(sorted_listing)
         sorted_listing_missing = sorted(listActsPopMissing, key=sortKey, reverse=True)
         sorted_listing_missing = popularity_sort(sorted_listing_missing)
-    
-    for i, artist in enumerate(sorted_listing):
-        artist['overall'] = i + 1
-
-    
-    for i, artist in enumerate(sorted_listing_missing):
-        artist['overall'] = i + 1 
         
     if PRINT_RANKINGs: 
         print_md_lst(sorted_listing, in_genre_list)
