@@ -12,7 +12,7 @@ TZ = pytz.timezone('US/Central')  # Clashfinder is in Central time
 
 MAKE_ARR_FILE = 1 # 0 = Don't make the file; 1= Make the file; 2 = Make the file and print it to the console
 PRINT_RANKINGs = 1
-USE_TEST_ARR = 1
+USE_TEST_ARR = 0
 PRINT_SEARCH_RESULTS = 1
 SORT_POP_BY_FOLLOWERS = 0
 GENRE_DEFAULT = "NO_GENRE"
@@ -554,11 +554,14 @@ def popularity_sort(popList):
     if use_monthly_listens:
         pop_weights = [0.4, 0.3, 0.3]  # populary, follower, monthly listens 
     else:
-        pop_weights = [0.4, 0.6, 0]  # populary, follower, N/A
-    maxPop = max(artist['popularity'] for artist in popList)
-    maxFol = max(artist['followers'] for artist in popList)
+        pop_weights = [0.7, 0.3, 0]  # populary, follower, N/A
+    maxPop = max(max(artist['popularity'] for artist in popList), 1)
+    maxFol = max(max(artist['followers'] for artist in popList), 1)
     if use_monthly_listens:
-        maxMonLis = max(artist['monthly_listeners'] for artist in popList)
+        maxMonLis = max(max(artist['monthly_listeners'] for artist in popList), 1)
+    else:
+        fol_pop_ratio = int((pop_weights[0] / pop_weights[1]) * (maxFol / maxPop))
+        print(f"Ratio for prioritizing followers to popularity: {fol_pop_ratio} followers for 1 pop")
     for pop in popList:
         popPercent = pop['popularity']/maxPop
         folPercent = pop['followers']/maxFol
