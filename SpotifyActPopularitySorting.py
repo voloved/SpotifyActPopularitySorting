@@ -52,7 +52,7 @@ testPop = [
     {'name': 'Cassandra Coleman', 'followers': 0, 'popularity': 0, 'monthly_listeners': 0},
     {'name': 'Charlotte Lawrence', 'followers': 1180039, 'popularity': 57, 'monthly_listeners': 2165946},
     {'name': 'Chase & Status', 'followers': 1127270, 'popularity': 71, 'monthly_listeners': 6775888},
-    {'name': 'Chicago Youth Symphony Orchestra', 'followers': 133, 'popularity': 3, 'monthly_listeners': 489},
+    {'name': 'Chicago Youth Orchestra', 'followers': 133, 'popularity': 3, 'monthly_listeners': 489},
     {'name': 'Chicago Made', 'followers': 0, 'popularity': 0, 'monthly_listeners': 0},
     {'name': 'Clairo', 'followers': 5892342, 'popularity': 81, 'monthly_listeners': 17896660},
     {'name': 'Cloonee', 'followers': 191831, 'popularity': 63, 'monthly_listeners': 3885163},
@@ -172,7 +172,7 @@ testPop = [
     {'name': 'Tanner Adell', 'followers': 116327, 'popularity': 54, 'monthly_listeners': 1179201},
     {'name': 'Tape B', 'followers': 72640, 'popularity': 53, 'monthly_listeners': 683413},
     {'name': 'TESSLA', 'followers': 358, 'popularity': 5, 'monthly_listeners': 1024},
-    {'name': 'Torren Foot B2B Airwolf Paradise', 'followers': 23415, 'popularity': 54, 'monthly_listeners': 759400},
+    {'name': 'Torren B2B Airwolf', 'followers': 23415, 'popularity': 54, 'monthly_listeners': 759400},
     {'name': 'Torren Foot', 'followers': 25436, 'popularity': 52, 'monthly_listeners': 1074047},
     {'name': 'Airwolf Paradise', 'followers': 13569, 'popularity': 38, 'monthly_listeners': 191620},
     {'name': 'TWICE', 'followers': 21596613, 'popularity': 79, 'monthly_listeners': 10004161},
@@ -310,7 +310,7 @@ genreDict = {
               "Barry Can't Swim", "Prospa", "Azzecca", "DJ Heather",
               "Tessla", "Aliyah's Interlude", "BUNT.", "Salute",
               "Nimino", "Jigitz", "Daniel Allan", "Jev", "Dom Dolla",
-              "Mau P", "Cloonee", "Torren Foot B2B Airwolf Paradise",
+              "Mau P", "Cloonee", "Torren B2B Airwolf",
               "Raecola"],
     "DUBSTEP": ["ISOxo", "Tape B", "Flux Pavilion", "Levity",
                 "Layz", "ALLEYCVT", "Hex Cougar", "Viperactive"],
@@ -331,12 +331,12 @@ genreDict = {
     "COUNTRY": ["Luke Combs", "Wyatt Flores", "Max McNown", "Willow Avalon",
                 "Colby Acuff", "Graham Barham", "Tanner Adell"],
     "FOLK": ["Sierra Ferrell", "Wild Rivers", "Mark Ambor"],
-    "OTHER": ["Chicago Youth Symphony Orchestra", "Amaarae", "Chicago Made", "Midnight Generation"],
+    "OTHER": ["Chicago Youth Orchestra", "Amaarae", "Chicago Made", "Midnight Generation"],
 }
 
-duoActs = {"Torren Foot B2B Airwolf Paradise" : ["Torren Foot", "Airwolf Paradise"]}
+duoActs = {"Torren B2B Airwolf" : ["Torren Foot", "Airwolf Paradise"]}
 
-forClashFinder = {} # k:v is name in clash finder : name in genre list
+forClashFinder = {"Chicago Youth Symphony Orchestra" : "Chicago Youth Orchestra", "Torren Foot B2B Airwolf Paradise" : "Torren B2B Airwolf"} # k:v is name in clash finder : name in genre list
 
 def get_client_credentials(file_path="creds.json"):
     try:
@@ -618,16 +618,28 @@ def print_md_lst(sorted_listing, genre_list):
         else:
             print(f"| {overall : ^{longestNum}} | {act : ^{longestAct}} | {popularity : ^{longestPop}} | {followers : ^{longestFol}} | {stage : ^{longestStg}} |")
 
-replaceWords = {"RUFUS" : "R;F;S", "BOA" : "B:A", "A" : "a", "D" : "d", "." : "_"}
+replaceWords = {
+                "RUFUS" : "R;F;S",
+                "BOA" : "B:A",
+                "A" : "a",
+                "D" : "d",
+                "." : "_",
+                "&" : "`n",
+#                "M" : "N%",
+#                "W" : "WJ"
+                }
 
-def get_name_to_display(act, i=0):
-    maxDisplayLen = 21
+def get_name_to_display(act, i=0, maxDisplayLen=None):
     actToDisp = unidecode(act)
     actToDisp = strip_word(actToDisp,["The"], True)
     actToDisp = actToDisp.upper()
     for was, want in replaceWords.items():
         actToDisp = actToDisp.replace(was, want)
-    actToDisp = f"{actToDisp[:maxDisplayLen]: <6}"  # <6 makes it so text that won't fill the whole watch screen will be filled with spaces
+    if i > 0:
+        actToDisp = f"{actToDisp} {i+1}"
+    if maxDisplayLen is not None:
+        actToDisp = f"{actToDisp[:maxDisplayLen]}"
+    actToDisp = f"{actToDisp :<6}"  # <6 makes it so text that won't fill the whole watch screen will be filled with spaces
     return actToDisp
 
 def writeAndPrint(file, text):
@@ -636,6 +648,7 @@ def writeAndPrint(file, text):
         print(text)
 
 def print_array_for_watch(listActs, sorted_listing, day_info, filename, genre_list):
+    maxDisplayLen = None  # If None, then use the max length of the options, but 21 is a good option too.
     with open(f'{filename}.txt', 'w') as f:
         artistDateNotFound = []
         writeAndPrint(f, f"// Genre - {genre_source}")
@@ -651,9 +664,13 @@ def print_array_for_watch(listActs, sorted_listing, day_info, filename, genre_li
                 if stage == STAGE_DEFAULT:
                     artistDateNotFound.append(act)
                     continue
-                actToDisp = get_name_to_display(act, i)
+                actToDisp = get_name_to_display(act, i, maxDisplayLen)
                 listActsPrint.append({'dispAct': actToDisp, 'act': act, 'start':start, 'end':end, 'stage':stage})
                 totalActs += 1
+        if maxDisplayLen is None:
+            arrLenSchedule = len(max(listActsPrint, key=lambda x: len(x['dispAct']))['dispAct']) + 2  # +2 for padding/EOL
+            arrActLongestSchedule = max(listActsPrint, key=lambda x: len(x['dispAct']))['dispAct']
+            print(f"Set schedule_t.artist's length to {arrLenSchedule} due to {arrActLongestSchedule}")
         listActsPrint = sorted(listActsPrint, key=lambda d: d['dispAct'].lstrip().lower())
         writeAndPrint(f, f"#define NUM_ACTS {totalActs}")
         writeAndPrint(f, "")
